@@ -66,7 +66,7 @@ pip install tqdm boto3 requests regex sentencepiece sacremoses
 
 ## 토크나이저
 
-토크나이저 객체를 사용하면 문자 문자열에서 다른 모델에서 이해할 수 있는 토큰으로 변환할 수 있습니다. 각 모델마다 고유한 토크나이저가 있고, 일부 토큰화 메소드는 토크나이저에 따라 다릅니다. 전체 문서는 [여기](https://huggingface.co/pytorch-transformers/main_classes/tokenizer.html)에서 확인해보실 수 있습니다.
+토크나이저 객체로 문자열을 모델에서 사용할 수 있는 토큰으로 변환할 수 있습니다. 각 모델마다 고유한 토크나이저가 있고, 일부 토큰화 메소드는 토크나이저에 따라 다릅니다. 전체 문서는 [여기](https://huggingface.co/pytorch-transformers/main_classes/tokenizer.html)에서 확인해보실 수 있습니다.
 
 ```py
 import torch
