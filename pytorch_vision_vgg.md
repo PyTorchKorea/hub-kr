@@ -107,7 +107,6 @@ batchnorm 버전은 `_bn`이 접미사로 붙어있습니다.
 |  vgg19          | 27.62       | 9.12        |
 |  vgg19_bn       | 25.76       | 8.15        |
 
-### References
 ### 참조
 
 - [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556).
