@@ -19,7 +19,7 @@ order: 10
 # 모델 설명
 
 
-PyTorch-Transformers (이전엔 `pytorch-pretrained-bert`) 는 자연어 처리(NLP)를 위한 최신식 사전 학습된 모델들을 모아놓은 라이브러리입니다.
+PyTorch-Transformers (이전엔 `pytorch-pretrained-bert`으로 알려짐) 는 자연어 처리(NLP)를 위한 최신식 사전 학습된 모델들을 모아놓은 라이브러리입니다.
 
 라이브러리는 현재 다음 모델들에 대한 파이토치 구현과 사전 학습된 가중치, 사용 스크립트, 변환 유틸리티를 포함하고 있습니다.
 
@@ -194,7 +194,7 @@ with torch.no_grad():
 ## `modelForMaskedLM`을 사용하여, BERT로 마스킹된 토큰 예측하기
 
 ```python
-# `BertForMaskedLM`를 통해 예측할 토큰을 마스킹합니다.
+# `BertForMaskedLM`를 통해 예측할 토큰을 마스킹(마스크 토큰으로 변환)합니다.
 masked_index = 8
 indexed_tokens[masked_index] = tokenizer.mask_token_id
 tokens_tensor = torch.tensor([indexed_tokens])
@@ -224,7 +224,7 @@ segments_ids = [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1]
 segments_tensors = torch.tensor([segments_ids])
 tokens_tensor = torch.tensor([indexed_tokens])
 
-# 시작 및 종료 위치에 대한 로짓을 예측합니다.
+# 시작 및 종료 위치에 대한 로짓(logits)을 예측합니다.
 with torch.no_grad():
     out = question_answering_model(tokens_tensor, token_type_ids=segments_tensors)
 
