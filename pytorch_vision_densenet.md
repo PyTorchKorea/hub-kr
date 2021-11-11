@@ -28,8 +28,8 @@ model.eval()
 
 사전에 학습된 모든 모델은 동일한 방식으로 정규화된 입력 이미지,
 즉, `H` 와 `W` 는 최소 `224` 이상인 `(3 x H x W)` 형태의 3-채널 RGB 이미지의 미니 배치를 요구합니다.
-이미지를 `[0, 1]` 범위에서 로드한 다음 `평균 = [0.485, 0.456, 0.406]`
-과 `표준편자 = [0.229, 0.224, 0.225]` 를 통해 정규화합니다.
+이미지를 `[0, 1]` 범위에서 로드한 다음 `mean = [0.485, 0.456, 0.406]`
+과 `std = [0.229, 0.224, 0.225]` 를 통해 정규화합니다.
 
 실행 예시입니다.
 ```python
@@ -77,7 +77,7 @@ print(probabilities)
 # 카테고리 읽기
 with open("imagenet_classes.txt", "r") as f:
     categories = [s.strip() for s in f.readlines()]
-# 이미지 별 탑5 카테고리 조회
+# 이미지 별 Top5 카테고리 조회
 top5_prob, top5_catid = torch.topk(probabilities, 5)
 for i in range(top5_prob.size(0)):
     print(categories[top5_catid[i]], top5_prob[i].item())
