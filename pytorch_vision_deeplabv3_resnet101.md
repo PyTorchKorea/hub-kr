@@ -91,10 +91,10 @@ Deeplabv3-ResNet101은 ResNet-101 백본이 있는 Deeplabv3 모델로 구성되
 
 COCO val2017 데이터 셋에서 평가된 사전 훈련된 모델의 정확도는 다음과 같습니다.
 
-|    모델 구조  |   평균 IoU  | 전역 픽셀 단위 정확도 |
+|    Model structure  |   Mean IOU  | Global Pixelwise Accuracy |
 | ------------------- | ----------- | --------------------------|
 | deeplabv3_resnet101 |   67.4      |   92.4                    |
 
-### 리소스
+### 참조
 
  - [Rethinking Atrous Convolution for Semantic Image Segmentation](https://arxiv.org/abs/1706.05587)
