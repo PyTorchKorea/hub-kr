@@ -8,21 +8,22 @@ category: researchers
 image: densenet1.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/densenet.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/densenet.py
 github-id: pytorch/vision
 featured_image_1: densenet1.png
 featured_image_2: densenet2.png
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/Densenet
 ---
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.9.0', 'densenet121', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'densenet121', pretrained=True)
 # or any of these variants
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'densenet169', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'densenet201', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'densenet161', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'densenet169', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'densenet201', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'densenet161', pretrained=True)
 model.eval()
 ```
 

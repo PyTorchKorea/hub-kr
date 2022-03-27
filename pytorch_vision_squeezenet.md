@@ -8,19 +8,20 @@ category: researchers
 image: squeezenet.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/squeezenet.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/squeezenet.py
 github-id: pytorch/vision
 featured_image_1: squeezenet.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/SqueezeNet
 ---
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.9.0', 'squeezenet1_0', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'squeezenet1_0', pretrained=True)
 # or
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'squeezenet1_1', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'squeezenet1_1', pretrained=True)
 model.eval()
 ```
 

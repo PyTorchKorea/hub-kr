@@ -8,17 +8,18 @@ category: researchers
 image: googlenet1.png
 author: Pytorch Team
 tags: [vision]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/googlenet.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/googlenet.py
 github-id: pytorch/vision
 featured_image_1: googlenet1.png
 featured_image_2: googlenet2.png
 accelerator: cuda-optional
+demo-model-link: https://huggingface.co/spaces/pytorch/GoogleNet
 order: 10
 ---
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.9.0', 'googlenet', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'googlenet', pretrained=True)
 model.eval()
 ```
 

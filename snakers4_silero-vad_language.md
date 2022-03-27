@@ -13,7 +13,7 @@ github-id: snakers4/silero-vad
 featured_image_1: no-image
 featured_image_2: no-image
 accelerator: cuda-optional
-demo-model-link: https://colab.research.google.com/drive/1QSiUv_3hZzC_7EEN4rY_VDUvD4F-8ofQ#scrollTo=3kWsxeMn_q1c
+demo-model-link: https://huggingface.co/spaces/pytorch/silero_language_classifier
 ---
 
 
@@ -26,16 +26,18 @@ pip install -q torchaudio soundfile
 import torch
 torch.set_num_threads(1)
 from pprint import pprint
+# download example
+torch.hub.download_url_to_file('https://models.silero.ai/vad_models/de.wav', 'de_example.wav')
 
 model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
                               model='silero_lang_detector',
                               force_reload=True)
 
-get_language, read_audio = utils
+get_language, read_audio, *_ = utils
 
 files_dir = torch.hub.get_dir() + '/snakers4_silero-vad_master/files'
 
-wav = read_audio(f'{files_dir}/de.wav')
+wav = read_audio('de_example.wav')
 language = get_language(wav, model)
 
 pprint(language)
@@ -43,25 +45,11 @@ pprint(language)
 
 ### Model Description
 
-Silero VAD: pre-trained enterprise-grade Voice Activity Detector (VAD), Number Detector and Language Classifier. Enterprise-grade Speech Products made refreshingly simple (see our STT models). **Each model is published separately**.
+Silero VAD: pre-trained enterprise-grade Voice Activity Detector (VAD), Number Detector and Language Classifier (95 languages). Enterprise-grade Speech Products made refreshingly simple (see our STT models). **Each model is published separately**.
 
 Currently, there are hardly any high quality / modern / free / public voice activity detectors except for WebRTC Voice Activity Detector (link). WebRTC though starts to show its age and it suffers from many false positives.
 
-Also in some cases it is crucial to be able to anonymize large-scale spoken corpora (i.e. remove personal data). Typically personal data is considered to be private / sensitive if it contains (i) a name (ii) some private ID. Name recognition is a highly subjective matter and it depends on locale and business case, but Voice Activity and Number Detection are quite general tasks.
-
 **(!!!) Important Notice (!!!)** - the models are intended to run on CPU only and were optimized for performance on 1 CPU thread. Note that the model is quantized.
-
-
-### Supported Languages
-
-As of this page update, the following languages are supported:
-
-- Russian
-- English
-- German
-- Spanish
-
-To see the always up-to-date language list, please visit our [repo](https://github.com/snakers4/silero-vad).
 
 ### Additional Examples and Benchmarks
 

@@ -8,20 +8,21 @@ category: researchers
 image: wide_resnet.png
 author: Sergey Zagoruyko
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py
 github-id: pytorch/vision
 featured_image_1: wide_resnet.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/Wide_Resnet
 ---
 
 ```python
 import torch
 # load WRN-50-2:
-model = torch.hub.load('pytorch/vision:v0.9.0', 'wide_resnet50_2', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'wide_resnet50_2', pretrained=True)
 # or WRN-101-2
-model = torch.hub.load('pytorch/vision:v0.9.0', 'wide_resnet101_2', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'wide_resnet101_2', pretrained=True)
 model.eval()
 ```
 

@@ -13,6 +13,7 @@ github-id: snakers4/silero-vad
 featured_image_1: no-image
 featured_image_2: no-image
 accelerator: cuda-optional
+demo-model-link: https://huggingface.co/spaces/pytorch/Silero_Number_Detector
 ---
 
 
@@ -25,6 +26,7 @@ pip install -q torchaudio soundfile
 import torch
 torch.set_num_threads(1)
 from pprint import pprint
+torch.hub.download_url_to_file('https://models.silero.ai/vad_models/en_num.wav', 'en_number_example.wav')
 
 model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
                               model='silero_number_detector',
@@ -32,11 +34,11 @@ model, utils = torch.hub.load(repo_or_dir='snakers4/silero-vad',
 
 (get_number_ts,
  _, read_audio,
- _, _) = utils
+ *_) = utils
 
 files_dir = torch.hub.get_dir() + '/snakers4_silero-vad_master/files'
 
-wav = read_audio(f'{files_dir}/en_num.wav')
+wav = read_audio(f'en_number_example.wav')
 # full audio
 # get number timestamps from full audio file
 number_timestamps = get_number_ts(wav, model)

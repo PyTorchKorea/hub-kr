@@ -8,17 +8,18 @@ category: researchers
 image: alexnet2.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/alexnet.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/alexnet.py
 github-id: pytorch/vision
 featured_image_1: alexnet1.png
 featured_image_2: alexnet2.png
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/AlexNet
 ---
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.9.0', 'alexnet', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'alexnet', pretrained=True)
 model.eval()
 ```
 

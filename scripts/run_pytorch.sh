@@ -1,29 +1,21 @@
 #!/bin/bash
-set -e
 . ~/miniconda3/etc/profile.d/conda.sh
 conda activate base
 
-ALL_FILE=$(find *.md ! -name README.md)
-TEMP_PY="temp.py"
-CUDAS="nvidia"
+ALL_FILES=$(find *.md ! -name README.md)
+PYTHON_CODE_DIR="python_code"
 
-for f in $ALL_FILE
+mkdir $PYTHON_CODE_DIR
+
+# Quick rundown: for each file we extract the python code that's within
+# the ``` markers and we put that code in a corresponding .py file in $PYTHON_CODE_DIR
+# Then we execute each of these python files with pytest in test_run_python_code.py
+for f in $ALL_FILES
 do
-  echo "Running pytorch example in $f"
-  # FIXME: NVIDIA models checkoints are on cuda
-  if [[ $f = $CUDAS* ]]; then
-    echo "...skipped due to cuda checkpoints."
-  elif [[ $f = "pytorch_fairseq_translation"* ]]; then
-    echo "...temporarily disabled"
-  # FIXME: torch.nn.modules.module.ModuleAttributeError: 'autoShape' object has no attribute 'fuse'
-  elif [[ $f = "ultralytics_yolov5"* ]]; then
-    echo "...temporarily disabled"
-  else
-    sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' > $TEMP_PY
-    python $TEMP_PY
-
-    if [ -f "$TEMP_PY" ]; then
-      rm $TEMP_PY
-    fi
-  fi
+  f_no_ext=${f%.md}  # remove .md extension
+  out_py=$PYTHON_CODE_DIR/$f_no_ext.py
+  echo "Extracting Python code from $f into $out_py"
+  sed -n '/^```python/,/^```/ p' < $f | sed '/^```/ d' > $out_py
 done
+
+pytest --junitxml=test-results/junit.xml test_run_python_code.py -vv

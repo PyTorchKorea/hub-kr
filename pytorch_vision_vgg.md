@@ -8,25 +8,26 @@ category: researchers
 image: vgg.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/vgg.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/vgg.py
 github-id: pytorch/vision
 featured_image_1: vgg.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/vgg-nets
 ---
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg11', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg11', pretrained=True)
 # 추가로 아래와 같이 변형된 구조의 모델들이 있습니다
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg11_bn', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg13', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg13_bn', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg16', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg16_bn', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg19', pretrained=True)
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'vgg19_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg11_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg13', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg13_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg16', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg16_bn', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg19', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'vgg19_bn', pretrained=True)
 model.eval()
 ```
 
@@ -91,7 +92,7 @@ for i in range(top5_prob.size(0)):
 
 각 구성 및 bachnorm 버전에 대해서 [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556)에서 제안한 모델에 대한 구현이 있습니다.
 
-예를 들어, 논문에 제시된 구성 `A`는 `vgg11`, `B`는 `vgg13`, `D`는 `vgg16`, `E`는 `vgg19`입니다. 
+예를 들어, 논문에 제시된 구성 `A`는 `vgg11`, `B`는 `vgg13`, `D`는 `vgg16`, `E`는 `vgg19`입니다.
 batchnorm 버전은 `_bn`이 접미사로 붙어있습니다.
 
 사전 훈련된 모델이 있는 imagenet 데이터 세트의 1-crop 오류율은 아래에 나열되어 있습니다.
