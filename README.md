@@ -6,6 +6,16 @@ PyTorch에서 제공하는 모델 허브의 한국어 번역을 위한 저장소
 번역의 결과물은 [https://pytorch.kr/hub](https://pytorch.kr/hub)에서 확인하실 수 있습니다. (번역을 진행하며 **불규칙적으로** 업데이트합니다.)
 새로운 모델에 대한 반영은 [모델 허브의 공식 저장소](https://github.com/pytorch/hub)를 참고해주세요.
 
+## 빌드하기
+
+파이토치 허브는 [파이토치 한국 사용자 모임 홈페이지의 일부](https://pytorch.kr/hub/)입니다. \
+빌드를 위해서는 [파이토치 한국 사용자 모임 홈페이지 빌드 환경](https://github.com/PyTorchKorea/pytorch.kr#%EB%B9%8C%EB%93%9C-%EC%A0%88%EC%B0%A8)이 준비되어야 합니다. \
+자세한 내용은 [PyTorchKorea/pytorch.kr 저장소의 README.md](https://github.com/PyTorchKorea/pytorch.kr#%EB%B9%8C%EB%93%9C-%EC%A0%88%EC%B0%A8)를 참고해주세요.
+빌드 환경이 준비되었다면, 아래 명령어로 빌드 및 미리보기를 할 수 있습니다.
+```sh
+  ./preview_hub.sh
+```
+
 ## 기여하기
 
 다음의 방법들로 기여하실 수 있습니다.
@@ -17,8 +27,6 @@ PyTorch에서 제공하는 모델 허브의 한국어 번역을 위한 저장소
 3. 2로 번역된 문서를 리뷰하는 기여 :star:
   * [본 저장소에 Pull Request된 모델 소개](https://github.com/PyTorchKorea/hub-kr/pulls)의 번역이 적절한지 리뷰하는 기여입니다. \
     (많은 분들의 참여를 간절히 기다리고 있습니다. :pray:)
-
-기여 및 빌드 방법에 대한 자세한 내용은 [기여하기 문서](CONTRIBUTING.md)를 참고해주세요. :)
 
 ## 원문
 
