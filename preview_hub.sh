@@ -9,7 +9,7 @@ if [ -d $PREVIEW_DIR ]; then
   rm -rf $PREVIEW_DIR
 fi
 
-git clone https://github.com/PyTorchKorea/pytorch.kr.git --depth 1 $PREVIEW_DIR
+git clone --recursive https://github.com/PyTorchKorea/pytorch.kr.git --depth 1 $PREVIEW_DIR
 echo ' => 완료'
 
 # Copy hub-kr files
@@ -23,4 +23,6 @@ echo '3. PyTorch.KR 홈페이지를 빌드합니다...'
 echo '   빌드가 되지 않는 경우 README.md 파일을 참조해주세요.'
 echo '   (ruby, nodejs 및 의존성 설치가 필요합니다.)'
 cd $PREVIEW_DIR
+rbenv local
+nvm use
 make serve
