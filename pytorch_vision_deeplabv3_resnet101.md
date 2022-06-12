@@ -2,23 +2,27 @@
 layout: hub_detail
 background-class: hub-background
 body-class: hub
-title: Deeplabv3-ResNet101
-summary: DeepLabV3 model with a ResNet-101 backbone
+title: Deeplabv3
+summary: DeepLabV3 models with ResNet-50, ResNet-101 and MobileNet-V3 backbones
 category: researchers
 image: deeplab2.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/segmentation/deeplabv3.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/segmentation/deeplabv3.py
 github-id: pytorch/vision
 featured_image_1: deeplab1.png
 featured_image_2: deeplab2.png
 accelerator: cuda-optional
+demo-model-link: https://huggingface.co/spaces/pytorch/DeepLabV3
 order: 1
 ---
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.9.0', 'deeplabv3_resnet101', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'deeplabv3_resnet50', pretrained=True)
+# 또는 아래 중 하나
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'deeplabv3_resnet101', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'deeplabv3_mobilenet_v3_large', pretrained=True)
 model.eval()
 ```
 
@@ -29,13 +33,13 @@ model.eval()
 
 모델은 입력 Tensor와 높이와 너비가 같지만 21개의 클래스가 있는 두 개의 텐서가 있는 `OrderedDict`를 반환합니다.
 `output['out']` 의미론적 마스크를 포함하고 있고, `output['aux']`에는 픽셀 당 보조 손실(auxiliary loss) 값을 포함하고 있습니다. 추론 모드에서는, `output['aux']`는 유용하지 않습니다.
-따라서, `output['out']`은 `(N, 21, H, W)`과 같은 모양을 가집니다. 좀 더 자세한 정보는 [이곳](https://pytorch.org/docs/stable/torchvision/models.html#object-detection-instance-segmentation-and-person-keypoint-detection)에서 확인할 수 있습니다.
+따라서, `output['out']`은 `(N, 21, H, W)`과 같은 모양을 가집니다. 좀 더 자세한 정보는 [이곳](https://pytorch.org/vision/stable/models.html#semantic-segmentation)에서 확인할 수 있습니다.
 
 
 ```python
 # 파이토치 웹사이트에서 예시 이미지를 다운로드합니다.
 import urllib
-url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
+url, filename = ("https://github.com/pytorch/hub/raw/master/images/deeplab1.png", "deeplab1.png")
 try: urllib.URLopener().retrieve(url, filename)
 except: urllib.request.urlretrieve(url, filename)
 ```
@@ -45,6 +49,7 @@ except: urllib.request.urlretrieve(url, filename)
 from PIL import Image
 from torchvision import transforms
 input_image = Image.open(filename)
+input_image = input_image.convert("RGB")
 preprocess = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
@@ -86,14 +91,17 @@ plt.imshow(r)
 
 ### 모델 설명
 
-Deeplabv3-ResNet101은 ResNet-101 백본이 있는 Deeplabv3 모델로 구성되어 있습니다.
+Deeplabv3-ResNet은 ResNet-50 또는 ResNet-101 백본이 있는 Deeplabv3 모델로 구성되어 있습니다.
+Deeplabv3-MobileNetV3-Large는 MobileNetV3 large 백본이 있는 DeepLabv3 모델로 구성되어 있습니다.
 사전 훈련된 모델은 Pascal VOC 데이터 세트에 있는 20개 카테고리에 대해 COCO train2017의 일부분 데이터 셋에 대해 훈련되었습니다.
 
 COCO val2017 데이터 셋에서 평가된 사전 훈련된 모델의 정확도는 다음과 같습니다.
 
-|    Model structure  |   Mean IOU  | Global Pixelwise Accuracy |
-| ------------------- | ----------- | --------------------------|
-| deeplabv3_resnet101 |   67.4      |   92.4                    |
+|    Model structure           |   Mean IOU  | Global Pixelwise Accuracy |
+| ---------------------------- | ----------- | --------------------------|
+| deeplabv3_resnet50           |   66.4      |   92.4                    |
+| deeplabv3_resnet101          |   67.4      |   92.4                    |
+| deeplabv3_mobilenet_v3_large |   60.3      |   91.2                    |
 
 ### 참조
 

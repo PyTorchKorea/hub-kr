@@ -4,10 +4,9 @@ set -e
 . ~/miniconda3/etc/profile.d/conda.sh
 conda activate base
 
-# Install the latest release of pytorch and torchvision
-conda install -y pytorch torchvision -c pytorch
-# Also install torchaudio
-conda install -y -c pytorch torchaudio
+conda install -y pytorch torchvision torchaudio -c pytorch-nightly
+
+conda install -y pytest
 
 # Dependencies required to load models
 conda install -y regex pillow tqdm boto3 requests numpy\
@@ -20,3 +19,5 @@ pip install -q omegaconf timm seaborn importlib_metadata huggingface_hub
 pip install -q hydra-core opencv-python fvcore
 pip install -q --upgrade google-api-python-client
 pip install pytorchvideo
+pip install -q prefetch_generator  # yolop
+pip install -q pretrainedmodels efficientnet_pytorch  # hybridnets

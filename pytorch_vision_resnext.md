@@ -8,19 +8,20 @@ category: researchers
 image: resnext.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/resnet.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/resnet.py
 github-id: pytorch/vision
 featured_image_1: resnext.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/ResNext
 ---
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.9.0', 'resnext50_32x4d', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'resnext50_32x4d', pretrained=True)
 # or
-# model = torch.hub.load('pytorch/vision:v0.9.0', 'resnext101_32x8d', pretrained=True)
+# model = torch.hub.load('pytorch/vision:v0.10.0', 'resnext101_32x8d', pretrained=True)
 model.eval()
 ```
 

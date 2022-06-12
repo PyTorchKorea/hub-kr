@@ -8,17 +8,18 @@ category: researchers
 image: mobilenet_v2_1.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/mobilenet.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/mobilenet.py
 github-id: pytorch/vision
 featured_image_1: mobilenet_v2_1.png
 featured_image_2: mobilenet_v2_2.png
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/MobileNet_v2
 ---
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.9.0', 'mobilenet_v2', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'mobilenet_v2', pretrained=True)
 model.eval()
 ```
 

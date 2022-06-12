@@ -8,17 +8,18 @@ category: researchers
 image: inception_v3.png
 author: Pytorch Team
 tags: [vision, scriptable]
-github-link: https://github.com/pytorch/vision/blob/master/torchvision/models/inception.py
+github-link: https://github.com/pytorch/vision/blob/main/torchvision/models/inception.py
 github-id: pytorch/vision
 featured_image_1: inception_v3.png
 featured_image_2: no-image
 accelerator: cuda-optional
 order: 10
+demo-model-link: https://huggingface.co/spaces/pytorch/Inception_v3
 ---
 
 ```python
 import torch
-model = torch.hub.load('pytorch/vision:v0.9.0', 'inception_v3', pretrained=True)
+model = torch.hub.load('pytorch/vision:v0.10.0', 'inception_v3', pretrained=True)
 model.eval()
 ```
 
