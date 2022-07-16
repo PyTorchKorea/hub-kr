@@ -23,6 +23,6 @@ echo '3. PyTorch.KR 홈페이지를 빌드합니다...'
 echo '   빌드가 되지 않는 경우 README.md 파일을 참조해주세요.'
 echo '   (ruby, nodejs 및 의존성 설치가 필요합니다.)'
 cd $PREVIEW_DIR
-rbenv local
+
 nvm use
 make serve
