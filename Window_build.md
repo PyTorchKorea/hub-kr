@@ -50,3 +50,6 @@ git bash command 창에 `npm install --global yarn`로 yarn를 설치해주세�
 
 - 참고자료 : [MINGW64 "make build" error: "bash: make: command not found"](https://stackoverflow.com/questions/36770716/mingw64-make-build-error-bash-make-command-not-found)  
 
+만약 ezwinports를 이용하여 windows에서 make가 적용되지 않을 때 chocolatey를 설치하고 이를 통해 make를 설치하여 사용할 수 있습니다.  
+
+- 참고자료 : [chocolatey 설치, 윈도우10에서 sudo,make 명령어 사용하기](https://jie0025.tistory.com/72)  
