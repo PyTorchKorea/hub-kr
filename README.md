@@ -14,7 +14,13 @@ PyTorch에서 제공하는 모델 허브의 한국어 번역을 위한 저장소
 빌드 환경이 준비되었다면, 아래 명령어로 빌드 및 미리보기를 할 수 있습니다.
 ```sh
   ./preview_hub.sh
-```
+```  
+
+Window 10의 경우 아래 명령어로 빌드 및 미리보기를 진행해주세요.  
+빌드 환경은 [Pytorch-hub-kr build in Window 10](./Window_build.md) 문서를 참고해주세요.  
+```sh
+  ./preview_hub_window.sh
+```  
 
 ## 기여하기
 
