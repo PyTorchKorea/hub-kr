@@ -23,25 +23,25 @@ model = torch.hub.load('mateuszbuda/brain-segmentation-pytorch', 'unet',
 
 ```
 
-Loads a U-Net model pre-trained for abnormality segmentation on a dataset of brain MRI volumes [kaggle.com/mateuszbuda/lgg-mri-segmentation](https://www.kaggle.com/mateuszbuda/lgg-mri-segmentation)
-The pre-trained model requires 3 input channels, 1 output channel, and 32 features in the first layer.
+위 코드는 뇌 MRI 볼륨 데이터 셋 [kaggle.com/mateuszbuda/lgg-mri-segmentation](https://www.kaggle.com/mateuszbuda/lgg-mri-segmentation)의 이상 탐지를 위해 사전 학습된 U-Net 모델을 불러옵니다. 
+사전 학습된 모델은 첫 번째 계층에서 3개의 입력 채널, 1개의 출력 채널 그리고 32개의 특징을 가집니다.
 
-### Model Description
+### 모델 설명
 
-This U-Net model comprises four levels of blocks containing two convolutional layers with batch normalization and ReLU activation function, and one max pooling layer in the encoding part and up-convolutional layers instead in the decoding part.
-The number of convolutional filters in each block is 32, 64, 128, and 256.
-The bottleneck layer has 512 convolutional filters.
-From the encoding layers, skip connections are used to the corresponding layers in the decoding part.
-Input image is a 3-channel brain MRI slice from pre-contrast, FLAIR, and post-contrast sequences, respectively.
-Output is a one-channel probability map of abnormality regions with the same size as the input image.
-It can be transformed to a binary segmentation mask by thresholding as shown in the example below.
+U-Net 모델은 배치 정규화 및 ReLU 활성 함수를 가진 두 개의 합성곱 계층, 인코딩 과정의 맥스 풀링(max-pooling) 계층 그리고 디코딩 과정의 업 컨볼루셔널(up-convolutional) 계층을 포함한 네 가지 단계의 블록으로 구성됩니다.
+각 블록의 합성곱 필터 수는 32, 64, 128, 256개입니다.
+병목 계층(bottleneck layer)은 512개의 합성곱 필터를 가집니다.
+인코딩 과정의 계층에서 얻은 특징을 이에 상응하는 디코딩 과정의 계층에 합치는 스킵 연결(skip connections)이 진행됩니다.
+입력 이미지는 pre-contrast, FLAIR 및 post-contrast 과정에서 얻은 3-채널 뇌 MRI 슬라이스입니다.
+출력은 이상 탐지 영역을 가지는 입력 이미지와 동일한 크기의 1-채널 확률 지도(probability map)입니다.
+아래의 예시처럼 임계 값을 설정하면 출력 이미지를 이진 분할 마스크로 변환할 수 있습니다.
 
-### Example
+### 예시
 
-Input images for pre-trained model should have 3 channels and be resized to 256x256 pixels and z-score normalized per volume.
+사전 학습된 모델에 입력되는 이미지는 3개의 채널을 가져야 하며 256x256 픽셀로 크기가 조정되고 각 볼륨마다 z-점수로 정규화된 상태여야 합니다.
 
 ```python
-# Download an example image
+# 예시 이미지 다운로드
 import urllib
 url, filename = ("https://github.com/mateuszbuda/brain-segmentation-pytorch/raw/master/assets/TCGA_CS_4944.png", "TCGA_CS_4944.png")
 try: urllib.URLopener().retrieve(url, filename)
@@ -72,7 +72,7 @@ with torch.no_grad():
 print(torch.round(output[0]))
 ```
 
-### References
+### 참고문헌
 
 - [Association of genomic subtypes of lower-grade gliomas with shape features automatically extracted by a deep learning algorithm](http://arxiv.org/abs/1906.03720)
 - [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/abs/1505.04597)
