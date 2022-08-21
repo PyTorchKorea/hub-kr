@@ -20,22 +20,22 @@ demo-model-link: https://huggingface.co/spaces/pytorch/SSD
 
 ### Model Description
 
-SSD300 모델은 "단일 심층 신경망을 사용하여 이미지에서 물체를 감지하는 방법"으로 설명 하는 [SSD: Single Shot MultiBox Detector](https://arxiv.org/abs/1512.02325) 논문을 기반으로 합니다. 입력 크기는 300x300으로 고정되어 있습니다.
+SSD300 모델은 "단일 심층 신경망을 사용하여 이미지에서 물체를 감지하는 방법"을 설명하는 [SSD: Single Shot MultiBox Detector](https://arxiv.org/abs/1512.02325) 논문을 기반으로 합니다. 입력 크기는 300x300으로 고정되어 있습니다.
 
-이 모델과 논문에 설명된 모델의 큰 차이점은 백본(backbone)에 있습니다. 논문에서 사용한 VGG 모델은 더 이상 사용되지 않으며 ResNet-50 모델로 대체되었습니다.
+이 모델과 논문에 설명된 모델의 큰 차이점은 백본(backbone)에 있습니다. 특히, 논문에서 사용한 VGG 모델은 더 이상 사용되지 않으며 ResNet-50 모델로 대체되었습니다.
 
-[Speed/accuracy trade-offs for modern convolutional object detectors](https://arxiv.org/abs/1611.10012) 논문에서 , 백본에 대해 다음과 같은 개선이 이루어졌습니다.:
+[Speed/accuracy trade-offs for modern convolutional object detectors](https://arxiv.org/abs/1611.10012) 논문에서, 백본에 대해 다음과 같은 개선이 이루어졌습니다.
 
 *   conv5_x, avgpool, fc 및 softmax 레이어는 기존의 분류 모델에서 제거되었습니다.
 *   conv4_x의 모든 strides는 1x1로 설정됩니다.
 
-백본 뒤에는 5개의 컨볼루션 레이어가 추가됩니다. 또한 컨볼루션 레이어 외에도 6개의 detection heads를 추가했습니다.
+백본 뒤에는 5개의 합성곱 레이어가 추가됩니다. 또한 합성곱 레이어 외에도 6개의 detection heads를 추가했습니다.
 The backbone is followed by 5 additional convolutional layers.
 In addition to the convolutional layers, we attached 6 detection heads:
 *   첫 번째 detection head는 마지막 conv4_x 레이어에 연결됩니다.
-*   나머지 5개의 detection head는 추가되는 5개의 컨볼루션 레이어에 부착됩니다.
+*   나머지 5개의 detection head는 추가되는 5개의 합성곱 레이어에 부착됩니다.
 
-Detector heads는 논문에서 언급된 것과 유사하지만, 각각의 컨볼루션 레이어 뒤에 BatchNorm 레이어를 추가함으로써 성능이 향상됩니다.
+Detector heads는 논문에서 언급된 것과 유사하지만, 각각의 합성곱 레이어 뒤에 BatchNorm 레이어를 추가함으로써 성능이 향상됩니다.
 
 ### Example
 
@@ -81,14 +81,14 @@ with torch.no_grad():
     detections_batch = ssd_model(tensor)
 ```
 
-기본적으로 입력 이미지당 SSD 네트워크의 가공되기 이전의 출력에서 국소화 및 클래스 확률 분포가 있는 8732개의 상자가 포함됩니다. 
-보다 포괄적인 형식으로 합리적인 탐지(신뢰도>40%)만 얻도록 이 출력을 필터링해 보겠습니다.
+SSD 네트워크의 기본 출력값은 객체의 위치를 식별하는 8732개의 box와  클래스 확률 분포를 담고 있습니다.
+보다 의미있는 결과(신뢰도>40%)만 필터링 해 보겠습니다.
 ```python
 results_per_input = utils.decode_results(detections_batch)
 best_results_per_input = [utils.pick_best(results, 0.40) for results in results_per_input]
 ```
 
-이 모델은 COCO 데이터셋에 대해 학습되었고, 클래스 ID를 객체 이름으로 번역하기 위해 유틸리티에 접근합니다.
+이 모델은 COCO 데이터셋에 대해 학습되었고, 클래스 ID를 (사람이 식별할 수 있는) 객체 이름으로 바꾸기 위해 coco 데이터셋에 접근이 필요합니다.
 처음에 다운로드할 때는 시간이 걸릴 수 있습니다.
 ```python
 classes_to_labels = utils.get_coco_object_dictionary()
