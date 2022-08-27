@@ -183,7 +183,7 @@ print("Top 5 predicted labels: %s" % ", ".join(pred_class_names))
 ```
 
 ### 모델 설명
-SlowFast 모델 아키텍처는 Kinetics 데이터셋의 8x8 설정을 사용하여 사전훈련된 가중치가 있는 [1]을 기반으로 합니다.
+SlowFast 모델 아키텍처는 Kinetics 데이터셋의 8x8 설정을 사용하여 사전 훈련된 가중치가 있는 [1]을 기반으로 합니다.
 
 | arch | depth | frame length x sample rate | top 1 | top 5 | Flops (G) | Params (M) |
 | --------------- | ----------- | ----------- | ----------- | ----------- | ----------- |  ----------- | ----------- |
