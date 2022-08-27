@@ -102,7 +102,7 @@ results.pandas().xyxy[0]  # img1에 대한 예측 (pandas)
 ## Contact
 
 
-**이슈가 생기면 즉시 https://github.com/ultralytics/yolov5 로 알려주세요.** 비즈니스 상의 문의나 전문적인 지원 요청은 [https://ultralytics.com](https://ultralytics.com) 을 방문하거나 Glenn Jocher의 이메일인 [glenn.jocher@ultralytics.com](mailto:glenn.jocher@ultralytics.com) 으로 연락 주세요.
+**이슈가 생기면 https://github.com/ultralytics/yolov5 에 직접 알려주세요.** 비즈니스 상의 문의나 전문적인 지원 요청은 [https://ultralytics.com](https://ultralytics.com) 을 방문하거나 Glenn Jocher의 이메일인 [glenn.jocher@ultralytics.com](mailto:glenn.jocher@ultralytics.com) 으로 영문으로 연락 주세요.
 
 
 &nbsp;
