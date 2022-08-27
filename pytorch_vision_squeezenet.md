@@ -20,20 +20,20 @@ demo-model-link: https://huggingface.co/spaces/pytorch/SqueezeNet
 ```python
 import torch
 model = torch.hub.load('pytorch/vision:v0.10.0', 'squeezenet1_0', pretrained=True)
-# or
+# 또는
 # model = torch.hub.load('pytorch/vision:v0.10.0', 'squeezenet1_1', pretrained=True)
 model.eval()
 ```
 
-All pre-trained models expect input images normalized in the same way,
-i.e. mini-batches of 3-channel RGB images of shape `(3 x H x W)`, where `H` and `W` are expected to be at least `224`.
-The images have to be loaded in to a range of `[0, 1]` and then normalized using `mean = [0.485, 0.456, 0.406]`
-and `std = [0.229, 0.224, 0.225]`.
+사전에 훈련된 모델은 모두 같은 방식으로 정규화(normalize)한 이미지를 입력으로 받습니다.
 
-Here's a sample execution.
+예를 들어, `(3 x H x W)` 포맷의 3채널 rgb 이미지들의 미니 배치의 경우 H 와 W 의 크기는 224 이상이어야 합니다.
+이 때 모든 픽셀들은 0과 1 사이의 값을 가지도록 변환한 이후 `mean = [0.485, 0.456, 0.406]`, `std = [0.229, 0.224, 0.225]` 로 정규화해야 합니다.
+
+실행 예제는 아래와 같습니다.
 
 ```python
-# Download an example image from the pytorch website
+# pytorch에서 웹사이트에서 예제 이미지 다운로드
 import urllib
 url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
 try: urllib.URLopener().retrieve(url, filename)
@@ -41,7 +41,7 @@ except: urllib.request.urlretrieve(url, filename)
 ```
 
 ```python
-# sample execution (requires torchvision)
+# 예제 (토치비전 필요)
 from PIL import Image
 from torchvision import transforms
 input_image = Image.open(filename)
@@ -52,51 +52,51 @@ preprocess = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
 input_tensor = preprocess(input_image)
-input_batch = input_tensor.unsqueeze(0) # create a mini-batch as expected by the model
+input_batch = input_tensor.unsqueeze(0) # 모델에서 요구하는 형식인 mini batch 형태로 변환
 
-# move the input and model to GPU for speed if available
+# 빠르게 실행하기 위해 가능한 경우 model 과 input image 를 gpu 를 사용하도록 설정
 if torch.cuda.is_available():
     input_batch = input_batch.to('cuda')
     model.to('cuda')
 
 with torch.no_grad():
     output = model(input_batch)
-# Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
+# ImageNet 1000개 범주에 대한 신뢰 점수를 나타내는 텐서 반환
 print(output[0])
-# The output has unnormalized scores. To get probabilities, you can run a softmax on it.
+# 해당 신뢰 점수는 softmax를 취해 확률값으로 변환가능합니다.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
 print(probabilities)
 ```
 
 ```
-# Download ImageNet labels
+# ImageNet 라벨 다운로드
 !wget https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt
 ```
 
 ```
-# Read the categories
+# 범주 읽기
 with open("imagenet_classes.txt", "r") as f:
     categories = [s.strip() for s in f.readlines()]
-# Show top categories per image
+# 이미지 별로 확률값이 가장 높은 범주 출력
 top5_prob, top5_catid = torch.topk(probabilities, 5)
 for i in range(top5_prob.size(0)):
     print(categories[top5_catid[i]], top5_prob[i].item())
 ```
 
-### Model Description
+### 모델 설명
 
-Model `squeezenet1_0` is from the [SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and <0.5MB model size](https://arxiv.org/pdf/1602.07360.pdf) paper
+`squeezenet1_0` 모델은 [SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and <0.5MB model size](https://arxiv.org/pdf/1602.07360.pdf) 논문을 구현한 것입니다.
 
-Model `squeezenet1_1` is from the [official squeezenet repo](https://github.com/DeepScale/SqueezeNet/tree/master/SqueezeNet_v1.1).
-It has 2.4x less computation and slightly fewer parameters than `squeezenet1_0`, without sacrificing accuracy.
+`squeezenet1_1` 모델은 [official squeezenet repo](https://github.com/DeepScale/SqueezeNet/tree/master/SqueezeNet_v1.1) 에서 왔습니다.
+`squeezenet1_0` 수준의 정확도를 유지하며 2.4배 계산이 덜 필요하고, `squeezenet1_0`보다 매개변수의 수가 적습니다.
 
-Their 1-crop error rates on imagenet dataset with pretrained models are listed below.
+ImageNet 데이터셋 기준으로 훈련된 모델들의 1-crop 에러율은 아래와 같습니다.
 
-| Model structure | Top-1 error | Top-5 error |
+| 모델 | Top-1 에러 | Top-5 에러 |
 | --------------- | ----------- | ----------- |
 |  squeezenet1_0  | 41.90       | 19.58       |
 |  squeezenet1_1  | 41.81       | 19.38       |
 
-### References
+### 참조
 
  - [Squeezenet: Alexnet-level accuracy with 50x fewer parameters and <0.5MB model size](https://arxiv.org/pdf/1602.07360.pdf).
