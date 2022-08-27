@@ -66,7 +66,7 @@ with torch.no_grad():
     output = model(input_batch)
 # 1000개의 ImageNet 클래스에 대한 신뢰도 점수(confidence score)를 가진 1000 크기의 Tensor
 print(output[0])
-# output엔 정규화되지 않은 신뢰도 점수가 있습니다. 확률 값을 얻으려면 softmax를 실행하세요.
+# output엔 정규화되지 않은 신뢰도 점수가 있습니다. 확률값을 얻으려면 softmax를 실행하세요.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
 print(probabilities)
 ```
