@@ -86,7 +86,7 @@ for i in range(top5_prob.size(0)):
 ### 모델 설명
 
 Resnext 모델은 논문 [Aggregated Residual Transformations for Deep Neural Networks]에서 제안되었습니다. (https://arxiv.org/abs/1611.05431).
-이중 두가지 버전의 모델 성능은 아래와 같습니다. 각 모델의 레이어 개수는 각 50, 101개입니다.
+여기서는 50개의 레이어와 101개의 레이어를 가지는 2개의 resnet 모델을 제공하고 있습니다.
 resnet50과 resnext50의 아키텍처 차이는 논문의 Table 1을 참고하십시오.
 ImageNet 데이터셋에 대한 사전훈련된 모델의 에러(성능)은 아래 표와 같습니다.
 
