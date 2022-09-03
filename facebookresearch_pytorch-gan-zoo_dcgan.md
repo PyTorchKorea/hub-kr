@@ -41,18 +41,18 @@ plt.imshow(torchvision.utils.make_grid(generated_images).permute(1, 2, 0).cpu().
 
 왼쪽에 있는 이미지와 유사하다는것을 볼 수 있습니다.
 
-만약 자기만의 DCGAN과 다른 GAN을 처음부터 학습시키고 싶다면, 이곳을 살펴보세요 [PyTorch GAN Zoo](https://github.com/facebookresearch/pytorch_GAN_zoo).
+만약 자기만의 DCGAN과 다른 GAN을 처음부터 학습시키고 싶다면, [PyTorch GAN Zoo](https://github.com/facebookresearch/pytorch_GAN_zoo) 참고하시기 바랍니다.
 
 ### 모델 설명
 
-컴퓨터 비전에서 생성 모델은 주어진 입력값으로부터 이미지를 생성하도록 훈련된 네트워크(networks)입니다. 이번 사례에서는 특정 종류의 이미지만 생성되도록 고려한 생성 네트워크: 무작위 벡터를 실제 이미지 생성과 연결하는 방법을 배우는 GANs (Generative Adversarial Networks) 입니다.
+컴퓨터 비전에서 생성 모델은 주어진 입력값으로부터 이미지를 생성하도록 훈련된 네트워크(networks)입니다. 본 예제에서는 특정 종류의 이미지만 생성되도록 고려한 생성 네트워크: 무작위 벡터를 실제 이미지 생성과 연결하는 방법을 배우는 GANs (Generative Adversarial Networks) 입니다.
 
 DCGAN은 2015년 Radford 등이 설계한 모델 구조입니다. 상세한 내용은 [Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](https://arxiv.org/abs/1511.06434) 논문에서 확인할 수 있습니다. 모델은 GAN 구조이며 저해상도 이미지 (최대 64x64) 생성에 매우 간편하고 효율적입니다.
 
 
 ### 요구 사항
 
-- Currently only supports Python 3
+- 현재는 오직 Python 3 에서만 지원됩니다.
 
 ### 참고문헌
 
