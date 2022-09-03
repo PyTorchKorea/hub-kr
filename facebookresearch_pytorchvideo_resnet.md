@@ -47,7 +47,7 @@ from pytorchvideo.transforms import (
 )
 ```
 
-#### 셋업
+#### 환경설정
 
 모델을 평가 모드로 설정하고 원하는 디바이스 방식을 선택합니다.
 
@@ -110,7 +110,7 @@ clip_duration = (num_frames * sampling_rate)/frames_per_second
 
 #### 추론 실행
 
-예제 비디오를 다운로드합니다.
+예제 영상을 다운로드합니다.
 
 ```python
 url_link = "https://dl.fbaipublicfiles.com/pytorchvideo/projects/archery.mp4"
@@ -119,15 +119,15 @@ try: urllib.URLopener().retrieve(url_link, video_path)
 except: urllib.request.urlretrieve(url_link, video_path)
 ```
 
-비디오를 불러오고 모델에 필요한 입력 형식으로 변환합니다.
+영상을 불러오고 이것을 모델에 필요한 입력 형식으로 변환합니다.
 
 ```python
 # 시작 및 종료 기간을 지정하여 불러올 클립의 기간을 선택합니다.
-# start_sec는 비디오에서 행동이 시작되는 위치와 일치해야합니다.
+# start_sec는 영상에서 행동이 시작되는 위치와 일치해야합니다.
 start_sec = 0
 end_sec = start_sec + clip_duration
 
-# EncodedVideo helper 클래스를 초기화하고 비디오를 불러옵니다.
+# EncodedVideo helper 클래스를 초기화하고 영상을 불러옵니다.
 video = EncodedVideo.from_path(video_path)
 
 # 원하는 클립을 불러옵니다.
@@ -158,7 +158,7 @@ print("Top 5 predicted labels: %s" % ", ".join(pred_class_names))
 ```
 
 ### 모델 설명
-모델 아키텍처는 Kinetics 데이터셋의 8x8 설정을 사용하여 사전 훈련된 가중치가 있는 [1]을 기반으로 합니다.
+모델 아키텍처는 Kinetics 데이터셋의 8x8 설정을 사용하여 사전 훈련된 가중치가 있는 참고문헌 [1]을 기반으로 합니다.
 | arch | depth | frame length x sample rate | top 1 | top 5 | Flops (G) | Params (M) |
 | --------------- | ----------- | ----------- | ----------- | ----------- | ----------- |  ----------- |
 | Slow     | R50   | 8x8                        | 74.58 | 91.63 | 54.52     | 32.45     |
