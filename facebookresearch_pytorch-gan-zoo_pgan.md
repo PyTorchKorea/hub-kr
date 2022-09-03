@@ -65,6 +65,6 @@ GAN의 점진적인 증가(Progressive Growing of GANs)는 Karras와 그 외[1]�
 
 - 현재는 Python3 에서만 지원합니다
 
-### References
+### 참고
 
 - [Progressive Growing of GANs for Improved Quality, Stability, and Variation](https://arxiv.org/abs/1710.10196)
