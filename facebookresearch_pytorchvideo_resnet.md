@@ -58,7 +58,7 @@ model = model.eval()
 model = model.to(device)
 ```
 
-토치 허브 모델이 훈련된 Kinetics 400 데이터셋에 대해 레이블 매핑이 된 ID를 다운로드합니다. 이는 예측된 클래스 ID에서 카테고리 레이블 이름을 가져오는데 사용됩니다.
+토치 허브 모델이 훈련된 Kinetics 400 데이터셋에 대해 ID에서의 레이블 매핑 정보를 다운로드합니다. 이는 예측된 클래스 ID에서 카테고리 레이블 이름을 가져오는데 사용됩니다.
 
 ```python
 json_url = "https://dl.fbaipublicfiles.com/pyslowfast/dataset/class_names/kinetics_classnames.json"
