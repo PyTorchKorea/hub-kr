@@ -6,17 +6,17 @@
 		* 예시. 데이터셋과 Dataset
 
 * 허브 모델 문서의 meta description도 번역에 포함됩니다.
-	* 문서 상단의 meta description의 summary 내용도 가급적 번역합니다.
-		* 예시.
-			```
-			---
-			layout: hub_detail
-			background-class: hub-background
-			body-class: hub
-			title: MobileNet v2
-			👉summary: residual block을 통해 속도와 메모리에 최적화된 효율적인 네트워크
-			...
-			```
+  * 문서 상단의 meta description의 summary 내용도 가급적 번역합니다.
+    * 예시.
+		```
+		---
+		layout: hub_detail
+		background-class: hub-background
+		body-class: hub
+		title: MobileNet v2
+		👉summary: residual block을 통해 속도와 메모리에 최적화된 효율적인 네트워크
+		...
+		```
 
 * 반드시 문서를 직역하지 않아도 됩니다.
   * 이해를 돕기 위한 (약간의) 의역이나 설명을 추가해도 좋습니다.
