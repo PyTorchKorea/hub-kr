@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: Transformer (NMT)
-summary: Transformer models for English-French and English-German translation.
+summary: 영어-프랑스어 번역과 영어-독일어 번역을 위한 트랜스포머 모델
 category: researchers
 image: fairseq_logo.png
 author: Facebook AI (fairseq Team)
@@ -48,7 +48,7 @@ import torch
 # WMT'14 data에서 학습된 영-불 트랜스포머 모델 불러오기:
 en2fr = torch.hub.load('pytorch/fairseq', 'transformer.wmt14.en-fr', tokenizer='moses', bpe='subword_nmt')
 
-# GPU 사용 (선택적):
+# GPU 사용 (선택사항):
 en2fr.cuda()
 
 # beam search를 통한 번역:
@@ -88,18 +88,18 @@ assert fr == en2fr.decode(fr_sample)
 
 [noisy-channel reranking][6]을 통해 이 접근법을 더 향상시킬 수 있습니다. 
 더 자세한 내용은 [블로그 포스트][7]에서 볼 수 있습니다. 
-이러한 테크닉으로 학습된 모델들의 앙상블은 [WMT'19 English-German news
+이러한 노하우로 학습된 모델들의 앙상블은 [WMT'19 English-German news
 translation competition][8]의 수상작입니다.
 
-영어를 독일어로 번역하기 위해 이 수상 모델 중 하나를 사용합니다: 
+앞서 소개된 대회 수상 모델 중 하나를 사용하여 영어를 독일어로 번역해보겠습니다:
 
 ```python
 import torch
 
-# WMT'14 data에서 학습된 영-독 트랜스포머 모델 불러오기:
+# WMT'19 data에서 학습된 영-독 트랜스포머 모델 불러오기:
 en2de = torch.hub.load('pytorch/fairseq', 'transformer.wmt19.en-de.single_model', tokenizer='moses', bpe='fastbpe')
 
-# Access the underlying TransformerModel
+# 기본 트랜스포머 모델에 접근
 assert isinstance(en2de.models[0], torch.nn.Module)
 
 # 영-독 번역
@@ -107,7 +107,7 @@ de = en2de.translate('PyTorch Hub is a pre-trained model repository designed to 
 assert de == 'PyTorch Hub ist ein vorgefertigtes Modell-Repository, das die Reproduzierbarkeit der Forschung erleichtern soll.'
 ```
 
-교차 번역으로 같은 문장에 대한 의역을 생성할 수도 있습니다:
+교차 번역으로 같은 문장에 대한 의역을 만들 수도 있습니다:
 ```python
 # 영어과 독일어 교차번역:
 en2de = torch.hub.load('pytorch/fairseq', 'transformer.wmt19.en-de.single_model', tokenizer='moses', bpe='fastbpe')
@@ -125,7 +125,7 @@ assert paraphrase == 'PyTorch is a great interface!'
 ```
 
 
-### 참고
+### 참고 문헌
 
 - [Attention Is All You Need][1]
 - [Scaling Neural Machine Translation][3]
