@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: MobileNet v2
-summary: Efficient networks optimized for speed and memory, with residual blocks
+summary: residual block을 통해 속도와 메모리에 최적화된 효율적인 네트워크
 category: researchers
 image: mobilenet_v2_1.png
 author: Pytorch Team
@@ -23,15 +23,14 @@ model = torch.hub.load('pytorch/vision:v0.10.0', 'mobilenet_v2', pretrained=True
 model.eval()
 ```
 
-All pre-trained models expect input images normalized in the same way,
-i.e. mini-batches of 3-channel RGB images of shape `(3 x H x W)`, where `H` and `W` are expected to be at least `224`.
-The images have to be loaded in to a range of `[0, 1]` and then normalized using `mean = [0.485, 0.456, 0.406]`
-and `std = [0.229, 0.224, 0.225]`.
+모든 사전 훈련된 모델들은 입력 이미지가 동일한 방식으로 정규화되었다고 상정합니다.
+즉, 미니 배치(mini-batch)의 3-채널 RGB 이미지들은 `(3 x H x W)`의 형태를 가지며, 해당 `H`와 `W`는 최소 `224` 이상이어야 합니다.
+각 이미지는 `[0, 1]`의 범위 내에서 불러와야 하며, `mean = [0.485, 0.456, 0.406]` 과 `std = [0.229, 0.224, 0.225]`을 이용해 정규화되어야 합니다.
 
-Here's a sample execution.
+다음은 실행 예제 입니다.
 
 ```python
-# Download an example image from the pytorch website
+# pytorch 웹사이트에서 예제 이미지 다운로드
 import urllib
 url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
 try: urllib.URLopener().retrieve(url, filename)
@@ -39,7 +38,7 @@ except: urllib.request.urlretrieve(url, filename)
 ```
 
 ```python
-# sample execution (requires torchvision)
+# 실행 예제 (torchvision 필요)
 from PIL import Image
 from torchvision import transforms
 input_image = Image.open(filename)
@@ -50,46 +49,46 @@ preprocess = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
 input_tensor = preprocess(input_image)
-input_batch = input_tensor.unsqueeze(0) # create a mini-batch as expected by the model
+input_batch = input_tensor.unsqueeze(0) # 모델에서 상정하는 미니배치 생성
 
-# move the input and model to GPU for speed if available
+# 사용 가능한 경우 속도를 위해 입력 데이터와 모델을 GPU로 이동
 if torch.cuda.is_available():
     input_batch = input_batch.to('cuda')
     model.to('cuda')
 
 with torch.no_grad():
     output = model(input_batch)
-# Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
+# output은 1000개의 Tensor 형태이며, 이는 Imagenet 데이터 셋의 1000개 클래스에 대한 신뢰도 점수를 나타내는 결과
 print(output[0])
-# The output has unnormalized scores. To get probabilities, you can run a softmax on it.
+# output 결과는 정규화되지 않은 결과. 확률을 얻기 위해선 softmax를 거쳐야 함.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
 print(probabilities)
 ```
 
 ```
-# Download ImageNet labels
+# ImageNet 라벨 다운로드
 !wget https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt
 ```
 
 ```
-# Read the categories
+# 카테고리 읽어들이기
 with open("imagenet_classes.txt", "r") as f:
     categories = [s.strip() for s in f.readlines()]
-# Show top categories per image
+# 이미지 별 상위 카테고리 표시
 top5_prob, top5_catid = torch.topk(probabilities, 5)
 for i in range(top5_prob.size(0)):
     print(categories[top5_catid[i]], top5_prob[i].item())
 ```
 
-### Model Description
+### 모델 설명
 
-The MobileNet v2 architecture is based on an inverted residual structure where the input and output of the residual block are thin bottleneck layers opposite to traditional residual models which use expanded representations in the input. MobileNet v2 uses lightweight depthwise convolutions to filter features in the intermediate expansion layer. Additionally, non-linearities in the narrow layers were removed in order to maintain representational power.
+MobileNet v2 구조는 residual 블록의 입력 및 출력이 입력단에서 확장 표현을 사용하는 기존의 residual 모델과 반대되는 얇은 병목 계층인 반전된 residual 구조를 기반으로 합니다. MobileNet v2는 경량화된 depthwise 합성곱를 사용하여 중간 확장 계층의 특징 들을 필터링합니다. 또한, 표현력 유지를 위해 좁은 계층의 비선형성은 제거되었습니다.
 
-| Model structure | Top-1 error | Top-5 error |
+| 모델 구조 | Top-1 오류 | Top-5 오류 |
 | --------------- | ----------- | ----------- |
 |  mobilenet_v2       | 28.12       | 9.71       |
 
 
-### References
+### 참고문헌
 
  - [MobileNetV2: Inverted Residuals and Linear Bottlenecks](https://arxiv.org/abs/1801.04381)
