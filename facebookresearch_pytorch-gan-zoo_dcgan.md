@@ -24,7 +24,7 @@ use_gpu = True if torch.cuda.is_available() else False
 model = torch.hub.load('facebookresearch/pytorch_GAN_zoo:hub', 'DCGAN', pretrained=True, useGPU=use_gpu)
 ```
 
-모델에 입력하는 잡음(noise) 벡터의 크기는 `(N, 120)` 이며 여기서 `N`은 생성하고자 하는 이미지의 개수입니다. 데이터 생성은 `.buildNoiseData` 함수를 사용하여 데이터를 생성할 수(구성할 수) 있습니다. 모델의 `.test` 함수를 사용하면 노이즈 벡터를 입력받아 이미지를 생성합니다.
+모델에 입력하는 잡음(noise) 벡터의 크기는 `(N, 120)` 이며 여기서 `N`은 생성하고자 하는 이미지의 개수입니다. 데이터 생성은 `.buildNoiseData` 함수를 사용하여 데이터를 생성할 수 있습니다. 모델의 `.test` 함수를 사용하면 잡음 벡터를 입력받아 이미지를 생성합니다.
 
 ```python
 num_images = 64
