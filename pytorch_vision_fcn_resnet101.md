@@ -25,9 +25,10 @@ model = torch.hub.load('pytorch/vision:v0.10.0', 'fcn_resnet50', pretrained=True
 model.eval()
 ```
 
-모든 사전 훈련된 모델은 동일한 방식으로 정규화된 입력 이미지, 즉 형태(N, 3, H, W)의 3채널 RGB 이미지의 미니배치는 N이 이미지 수이고, H와 W는 최소 224픽셀이 될 것으로 요구됩니다. 이미지를 [0, 1] 범위로 로드한 다음 mean = [0.485, 0.456, 0.406] 및 std = [0.229, 0.224, 0.225]를 사용하여 정규화해야 합니다.
-
-모델은 입력 텐서와 높이와 너비는 같지만 클래스가 21개인 텐서를 가진 'Ordered Dict'를 반환합니다. output['out']에는 시멘틱 마스크가 포함되며 output['aux']에는 픽셀당 보조 손실 값이 포함됩니다. 추론 모드에서는 output['aux']이 유용하지 않습니다.그래서 output['out']의 크기는 (N, 21, H, W)이다. 추가 설명서는 [여기]에서 찾을 수 있습니다.(https://pytorch.org/vision/stable/models.html#object-detection-instance-segmentation-and-person-keypoint-detection).
+모든 사전 훈련된 모델은 동일한 방식으로 정규화된 입력 이미지, 즉 N이 이미지 수이고, H와 W는 최소 224픽셀인 (N, 3, H, W)형태의 3채널 RGB 이미지의 미니 배치를 요구합니다. 
+이미지를 [0, 1] 범위로 로드한 다음 mean = [0.485, 0.456, 0.406] 및 std = [0.229, 0.224, 0.225]를 사용하여 정규화해야 합니다.
+모델은 입력 텐서와 높이와 너비는 같지만 클래스가 21개인 텐서를 가진 'OrderedDict'를 반환합니다. output['out']에는 시멘틱 마스크가 포함되며 output['aux']에는 픽셀당 보조 손실 값이 포함됩니다. 추론 모드에서는 output['aux']이 유용하지 않습니다.
+그래서 output['out']의 크기는 (N, 21, H, W)입니다. 추가 설명서는 [여기]에서 찾을 수 있습니다.(https://pytorch.org/vision/stable/models.html#object-detection-instance-segmentation-and-person-keypoint-detection).
 
 
 ```python
@@ -62,7 +63,7 @@ with torch.no_grad():
 output_predictions = output.argmax(0)
 ```
 
-여기서의 출력은 형태(21, H, W)이며, 각 위치에는 각 클래스의 예측에 해당하는 정규화되지 않은 확률이 있습니다. 각 클래스의 최대 예측을 가져온 다음 이를 다운스트림 작업에 사용하려면 'output_propertions = output.slmax(0)'를 수행합니다. 다음은 각 클래스에 할당된 각 색상과 함께 예측을 표시하는 작은 토막글 입니다(왼쪽의 시각화 이미지 참조).
+여기서의 출력은 형태(21, H, W)이며, 각 위치에는 각 클래스의 예측에 해당하는 정규화되지 않은 확률이 있습니다. 각 클래스의 최대 예측을 가져온 다음 이를 다운스트림 작업에 사용하려면 `output_propertions = output.slmax(0)`를 수행합니다. 다음은 각 클래스에 할당된 각 색상과 함께 예측을 표시하는 작은 토막글 입니다(왼쪽의 시각화 이미지 참조).
 
 ```python
 # 각 클래스에 대한 색상을 선택하여 색상 팔레트를 만듭니다.
@@ -70,7 +71,7 @@ palette = torch.tensor([2 ** 25 - 1, 2 ** 15 - 1, 2 ** 21 - 1])
 colors = torch.as_tensor([i for i in range(21)])[:, None] * palette
 colors = (colors % 255).numpy().astype("uint8")
 
-# 각 색상의 21개 클래스의 시멘틱 세그멘테이션 분할 예측을 그림으로 표시합니다.
+# 각 색상의 21개 클래스의 시멘틱 세그멘테이션 예측을 그림으로 표시합니다.
 r = Image.fromarray(output_predictions.byte().cpu().numpy()).resize(input_image.size)
 r.putpalette(colors)
 
@@ -83,7 +84,7 @@ plt.imshow(r)
 
 FCN-ResNet은 ResNet-50 또는 ResNet-101 백본을 사용하여 완전 컨볼루션 네트워크 모델로 구성됩니다. 사전 훈련된 모델은 Pascal VOC 데이터 세트에 존재하는 20개 범주에 대한 COCO 2017의 하위 집합에 대해 훈련 되었습니다.
 
-COCO val 2017 데이터 세트에서 평가된 사전 훈련된 모델의 정확성은 아래에 나열되어 있습니다.
+COCO val 2017 데이터셋에서 평가된 사전 훈련된 모델의 정확성은 아래에 나열되어 있습니다.
 
 | Model structure |   Mean IOU  | Global Pixelwise Accuracy |
 | --------------- | ----------- | --------------------------|
