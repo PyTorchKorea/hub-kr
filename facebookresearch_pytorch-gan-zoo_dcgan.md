@@ -32,7 +32,7 @@ noise, _ = model.buildNoiseData(num_images)
 with torch.no_grad():
     generated_images = model.test(noise)
 
-# let's plot these images using torchvision and matplotlib
+# torchvision 과 matplotlib 를 사용하여 생성된 이미지들을 시각화합니다.
 import matplotlib.pyplot as plt
 import torchvision
 plt.imshow(torchvision.utils.make_grid(generated_images).permute(1, 2, 0).cpu().numpy())
@@ -45,7 +45,7 @@ plt.imshow(torchvision.utils.make_grid(generated_images).permute(1, 2, 0).cpu().
 
 ### 모델 설명
 
-컴퓨터 비전에서 생성 모델은 주어진 입력값으로부터 이미지를 생성하도록 훈련된 네트워크(networks)입니다. 본 예제에서는 특정 종류의 이미지만 생성되도록 고려한 생성 네트워크: 무작위 벡터를 실제 이미지 생성과 연결하는 방법을 배우는 GANs (Generative Adversarial Networks) 입니다.
+컴퓨터 비전 분야에서 생성 모델은 주어진 입력에 대한 이미지를 생성하도록 훈련된 네트워크(networks)입니다. 본 예제에서는 무작위 벡터와 실제 이미지 생성 간의 연결하는 방법을 배우는 GANs (Generative Adversarial Networks) 으로 특정 종류의 생성 네트워크를 살펴봅니다.
 
 DCGAN은 2015년 Radford 등이 설계한 모델 구조입니다. 상세한 내용은 [Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](https://arxiv.org/abs/1511.06434) 논문에서 확인할 수 있습니다. 모델은 GAN 구조이며 저해상도 이미지 (최대 64x64) 생성에 매우 간편하고 효율적입니다.
 
