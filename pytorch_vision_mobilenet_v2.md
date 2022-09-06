@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: MobileNet v2
-summary: residual block을 통해 속도와 메모리에 최적화된 효율적인 네트워크
+summary: 잔차 블록에 기반한 속도와 메모리에 최적화된 효율적인 네트워크
 category: researchers
 image: mobilenet_v2_1.png
 author: Pytorch Team
@@ -24,7 +24,7 @@ model.eval()
 ```
 
 모든 사전 훈련된 모델들은 입력 이미지가 동일한 방식으로 정규화되었다고 상정합니다.
-즉, 미니 배치(mini-batch)의 3-채널 RGB 이미지들은 `(3 x H x W)`의 형태를 가지며, 해당 `H`와 `W`는 최소 `224` 이상이어야 합니다.
+즉, 미니 배치의 3-채널 RGB 이미지들은 `(3 x H x W)`의 형태를 가지며, 해당 `H`와 `W`는 최소 `224` 이상이어야 합니다.
 각 이미지는 `[0, 1]`의 범위 내에서 불러와야 하며, `mean = [0.485, 0.456, 0.406]` 과 `std = [0.229, 0.224, 0.225]`을 이용해 정규화되어야 합니다.
 
 다음은 실행 예제 입니다.
@@ -82,7 +82,7 @@ for i in range(top5_prob.size(0)):
 
 ### 모델 설명
 
-MobileNet v2 구조는 residual 블록의 입력 및 출력이 입력단에서 확장 표현을 사용하는 기존의 residual 모델과 반대되는 얇은 병목 계층인 반전된 residual 구조를 기반으로 합니다. MobileNet v2는 경량화된 depthwise 합성곱를 사용하여 중간 확장 계층의 특징 들을 필터링합니다. 또한, 표현력 유지를 위해 좁은 계층의 비선형성은 제거되었습니다.
+MobileNet v2 구조는 잔차 블록의 입력 및 출력이 입력단에서 확장 표현을 사용하는 기존의 잔차 모델과 반대되는 얇은 병목 계층인 반전된 잔차 구조를 기반으로 합니다. MobileNet v2는 경량화된 depthwise 합성곱를 사용하여 중간 확장 계층의 특징 들을 필터링합니다. 또한, 표현력 유지를 위해 좁은 계층의 비선형성은 제거되었습니다.
 
 | 모델 구조 | Top-1 오류 | Top-5 오류 |
 | --------------- | ----------- | ----------- |
