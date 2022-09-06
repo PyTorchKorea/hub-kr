@@ -41,7 +41,7 @@ plt.imshow(torchvision.utils.make_grid(generated_images).permute(1, 2, 0).cpu().
 
 왼쪽에 있는 이미지와 유사하다는것을 볼 수 있습니다.
 
-만약 자기만의 DCGAN과 다른 GAN을 처음부터 학습시키고 싶다면, [PyTorch GAN Zoo](https://github.com/facebookresearch/pytorch_GAN_zoo) 참고하시기 바랍니다.
+만약 자기만의 DCGAN과 다른 GAN을 처음부터 학습시키고 싶다면, [PyTorch GAN Zoo](https://github.com/facebookresearch/pytorch_GAN_zoo) 를 참고하시기 바랍니다.
 
 ### 모델 설명
 
