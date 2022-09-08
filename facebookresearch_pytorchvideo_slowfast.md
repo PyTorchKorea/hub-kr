@@ -95,7 +95,7 @@ num_crops = 3
 
 class PackPathway(torch.nn.Module):
     """
-    비디오 프레임을 텐서 리스트로 바꾸기 위한 변환.
+    영상 프레임을 텐서 리스트로 바꾸기 위한 변환.
     """
     def __init__(self):
         super().__init__()
@@ -135,7 +135,7 @@ clip_duration = (num_frames * sampling_rate)/frames_per_second
 
 #### 추론 실행
 
-예제 비디오를 다운로드합니다.
+예제 영상을 다운로드합니다.
 
 ```python
 url_link = "https://dl.fbaipublicfiles.com/pytorchvideo/projects/archery.mp4"
@@ -144,21 +144,21 @@ try: urllib.URLopener().retrieve(url_link, video_path)
 except: urllib.request.urlretrieve(url_link, video_path)
 ```
 
-비디오를 불러오고 모델에 필요한 입력 형식으로 변환합니다.
+영상을 불러오고 모델에 필요한 입력 형식으로 변환합니다.
 
 ```python
 # 시작 및 종료 기간을 지정하여 불러올 클립의 기간을 선택합니다.
-# start_sec는 비디오에서 행동이 시작되는 위치와 일치해야합니다.
+# start_sec는 영상에서 행동이 시작되는 위치와 일치해야합니다.
 start_sec = 0
 end_sec = start_sec + clip_duration
 
-# EncodedVideo helper 클래스를 초기화하고 비디오를 불러옵니다.
+# EncodedVideo helper 클래스를 초기화하고 영상을 불러옵니다.
 video = EncodedVideo.from_path(video_path)
 
 # 원하는 클립을 불러옵니다.
 video_data = video.get_clip(start_sec=start_sec, end_sec=end_sec)
 
-# 비디오 입력을 정규화하기 위해 transform 함수를 적용합니다.
+# 영상 입력을 정규화하기 위해 transform 함수를 적용합니다.
 video_data = transform(video_data)
 
 # 입력을 원하는 디바이스로 이동합니다.
