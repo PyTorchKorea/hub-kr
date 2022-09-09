@@ -55,15 +55,15 @@ en2fr.cuda()
 fr = en2fr.translate('Hello world!', beam=5)
 assert fr == 'Bonjour à tous !'
 
-# 수동으로 토큰화:
+# 토큰화:
 en_toks = en2fr.tokenize('Hello world!')
 assert en_toks == 'Hello world !'
 
-# 수동으로 BPE 적용:
+# BPE 적용:
 en_bpe = en2fr.apply_bpe(en_toks)
 assert en_bpe == 'H@@ ello world !'
 
-# 수동으로 2진화:
+# 이진화:
 en_bin = en2fr.binarize(en_bpe)
 assert en_bin.tolist() == [329, 14044, 682, 812, 2]
 
@@ -71,7 +71,7 @@ assert en_bin.tolist() == [329, 14044, 682, 812, 2]
 fr_bin = en2fr.generate(en_bin, beam=5, sampling=True, sampling_topk=20)
 assert len(fr_bin) == 5
 
-# 예시중 하나를 문자열로 변환하고 탈토큰화
+# 예시중 하나를 문자열로 변환하고 비토큰화
 fr_sample = fr_bin[0]['tokens']
 fr_bpe = en2fr.string(fr_sample)
 fr_toks = en2fr.remove_bpe(fr_bpe)
