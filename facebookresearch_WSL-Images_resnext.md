@@ -64,7 +64,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# Imagenet의 1000개 클래스에 대한 신뢰도 점수를 가진, shape이 1000인 출력
+# Imagenet의 1000개 클래스에 대한 신뢰도 점수를 가진, shape이 1000인 텐서 출력
 print(output[0])
 # 출력값은 정규화되지 않은 형태입니다. Softmax를 실행하면 확률을 얻을 수 있습니다.
 print(torch.nn.functional.softmax(output[0], dim=0))
@@ -83,7 +83,7 @@ print(torch.nn.functional.softmax(output[0], dim=0))
 | ResNeXt-101 32x32d | 466M        | 87B   |    85.1    |  97.5      |
 | ResNeXt-101 32x48d | 829M        | 153B  |    85.4    |  97.6      |
 
-ResNeXt 모델을 사용하면 사전 학습된 모델을 사용하지 않고 처음부터 학습하는 경우에 비해 ImageNet 데이터셋에서의 학습 정확도가 크게 향상됩니다. ResNext-101 32x48d 모델은 ImageNet 데이터셋을 사용했을 때 85.4%의 최첨단 정확도를 달성했습니다.
+ResNeXt 모델을 사용하면 사전 학습된 모델을 사용하지 않고 처음부터 학습하는 경우에 비해 ImageNet 데이터셋에서의 학습 정확도가 크게 향상됩니다. ResNext-101 32x48d 모델은 ImageNet 데이터셋을 사용했을 때 85.4%에 달하는 최고 수준의 정확도를 달성했습니다.
 
 ### 참고문헌
 
