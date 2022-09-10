@@ -1,4 +1,4 @@
----
+ï»¿---
 layout: hub_detail
 background-class: hub-background
 body-class: hub
@@ -18,31 +18,31 @@ demo-model-link: https://huggingface.co/spaces/pytorch/ResNet50
 ---
 
 
-### ¸ğµ¨ ¼³¸í
+### ëª¨ë¸ ì„¤ëª…
 
-***ResNet50 v1.5***¸ğµ¨Àº [original ResNet50 v1 model](https://arxiv.org/abs/1512.03385)ÀÇ ¼öÁ¤µÈ ¹öÀüÀÔ´Ï´Ù.
+***ResNet50 v1.5***ëª¨ë¸ì€ [original ResNet50 v1 model](https://arxiv.org/abs/1512.03385)ì˜ ìˆ˜ì •ëœ ë²„ì „ì…ë‹ˆë‹¤.
 
-v1°ú v1.5ÀÇ Â÷ÀÌÁ¡Àº ´Ù¿î»ùÇÃ¸µÀÌ ÇÊ¿äÇÑ º´¸ñ ºí·Ï¿¡¼­ v1Àº Ã¹ ¹øÂ° 1x1 ÄÁº¼·ç¼Ç¿¡¼­ ½ºÆ®¶óÀÌµå = 2¸¦ °®´Â ¹İ¸é v1.5´Â 3x3 ÄÁº¼·ç¼Ç¿¡¼­ ½ºÆ®¶óÀÌµå = 2¸¦ °®´Â´Ù´Â °ÍÀÔ´Ï´Ù.
+v1ê³¼ v1.5ì˜ ì°¨ì´ì ì€ ë‹¤ìš´ìƒ˜í”Œë§ì´ í•„ìš”í•œ ë³‘ëª© ë¸”ë¡ì—ì„œ v1ì€ ì²« ë²ˆì§¸ 1x1 ì»¨ë³¼ë£¨ì…˜ì—ì„œ ìŠ¤íŠ¸ë¼ì´ë“œ = 2ë¥¼ ê°–ëŠ” ë°˜ë©´ v1.5ëŠ” 3x3 ì»¨ë³¼ë£¨ì…˜ì—ì„œ ìŠ¤íŠ¸ë¼ì´ë“œ = 2ë¥¼ ê°–ëŠ”ë‹¤ëŠ” ê²ƒì…ë‹ˆë‹¤.
 
-ÀÌ·¯ÇÑ Â÷ÀÌ´Â ResNet50 v1.5¸¦ v1º¸´Ù Á¶±İ ´õ Á¤È®ÇÏ°Ô ¸¸µéÁö¸¸(\~0.5% top1) ¾à°£ÀÇ ¼º´ÉÀûÀÎ ´ÜÁ¡(\~5% imgs/sec)ÀÌ ÀÖ½À´Ï´Ù.
+ì´ëŸ¬í•œ ì°¨ì´ëŠ” ResNet50 v1.5ë¥¼ v1ë³´ë‹¤ ì¡°ê¸ˆ ë” ì •í™•í•˜ê²Œ ë§Œë“¤ì§€ë§Œ(\~0.5% top1) ì•½ê°„ì˜ ì„±ëŠ¥ì ì¸ ë‹¨ì (\~5% imgs/sec)ì´ ìˆìŠµë‹ˆë‹¤.
 
 The model is initialized as described in [Delving deep into rectifiers: Surpassing human-level performance on ImageNet classification](https://arxiv.org/pdf/1502.01852.pdf)
 
-¸ğµ¨Àº [Delving deep into rectifiers: Surpassing human-level performance on ImageNet classification](https://arxiv.org/pdf/1502.01852.pdf)¿¡ ¼³¸íµÈ ´ë·Î ÃÊ±âÈ­µË´Ï´Ù.
+ëª¨ë¸ì€ [Delving deep into rectifiers: Surpassing human-level performance on ImageNet classification](https://arxiv.org/pdf/1502.01852.pdf)ì— ì„¤ëª…ëœ ëŒ€ë¡œ ì´ˆê¸°í™”ë©ë‹ˆë‹¤.
 
 This model is trained with mixed precision using Tensor Cores on Volta, Turing, and the NVIDIA Ampere GPU architectures. Therefore, researchers can get results over 2x faster than training without Tensor Cores, while experiencing the benefits of mixed precision training. This model is tested against each NGC monthly container release to ensure consistent accuracy and performance over time.
 
-ÀÌ ¸ğµ¨Àº Volta, Turing ¹× NVIDIA Ampere GPU ¾ÆÅ°ÅØÃ³ÀÇ Tensor ÄÚ¾î¸¦ »ç¿ëÇÏ¿© È¥ÇÕ Á¤¹Ğµµ·Î ÇĞ½ÀµË´Ï´Ù. µû¶ó¼­ ¿¬±¸ÀÚµéÀº È¥ÇÕ Á¤¹Ğ ±³À°ÀÇ ÀÌÁ¡À» °æÇèÇÏ¸é¼­ Tensor Core ¾øÀÌ ÇĞ½ÀÇÏ´Â °Íº¸´Ù 2¹è ÀÌ»ó ºü¸¥ °á°ú¸¦ ¾òÀ» ¼ö ÀÖ½À´Ï´Ù. ÀÌ ¸ğµ¨Àº ½Ã°£ÀÌ Áö³²¿¡ µû¶ó ÀÏ°üµÈ Á¤È®¼º°ú ¼º´ÉÀ» º¸ÀåÇÏ±â À§ÇØ °¢ NGC ¿ùº° ÄÁÅ×ÀÌ³Ê ¸±¸®½º¿¡ ´ëÇØ Å×½ºÆ®µË´Ï´Ù.
+ì´ ëª¨ë¸ì€ Volta, Turing ë° NVIDIA Ampere GPU ì•„í‚¤í…ì²˜ì˜ Tensor ì½”ì–´ë¥¼ ì‚¬ìš©í•˜ì—¬ í˜¼í•© ì •ë°€ë„ë¡œ í•™ìŠµë©ë‹ˆë‹¤. ë”°ë¼ì„œ ì—°êµ¬ìë“¤ì€ í˜¼í•© ì •ë°€ êµìœ¡ì˜ ì´ì ì„ ê²½í—˜í•˜ë©´ì„œ Tensor Core ì—†ì´ í•™ìŠµí•˜ëŠ” ê²ƒë³´ë‹¤ 2ë°° ì´ìƒ ë¹ ë¥¸ ê²°ê³¼ë¥¼ ì–»ì„ ìˆ˜ ìˆìŠµë‹ˆë‹¤. ì´ ëª¨ë¸ì€ ì‹œê°„ì´ ì§€ë‚¨ì— ë”°ë¼ ì¼ê´€ëœ ì •í™•ì„±ê³¼ ì„±ëŠ¥ì„ ë³´ì¥í•˜ê¸° ìœ„í•´ ê° NGC ì›”ë³„ ì»¨í…Œì´ë„ˆ ë¦´ë¦¬ìŠ¤ì— ëŒ€í•´ í…ŒìŠ¤íŠ¸ë©ë‹ˆë‹¤.
 
 Note that the ResNet50 v1.5 model can be deployed for inference on the [NVIDIA Triton Inference Server](https://github.com/NVIDIA/trtis-inference-server) using TorchScript, ONNX Runtime or TensorRT as an execution backend. For details check [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnet_for_triton_from_pytorch)
 
-ResNet50 v1.5 ¸ğµ¨Àº TorchScript, ONNX Runtime ¶Ç´Â TensorRT¸¦ ½ÇÇà ¹é¿£µå·Î »ç¿ëÇÏ¿© [NVIDIA Triton Inference Server](https://github.com/NVIDIA/trtis-inference-server)¿¡¼­ Ãß·ĞÀ» À§ÇØ ¹èÄ¡µÉ ¼ö ÀÖ½À´Ï´Ù. ÀÚ¼¼ÇÑ ³»¿ëÀº [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnet_for_triton_from_pytorch)¸¦ È®ÀÎÇÏ½Ê½Ã¿À.
+ResNet50 v1.5 ëª¨ë¸ì€ TorchScript, ONNX Runtime ë˜ëŠ” TensorRTë¥¼ ì‹¤í–‰ ë°±ì—”ë“œë¡œ ì‚¬ìš©í•˜ì—¬ [NVIDIA Triton Inference Server](https://github.com/NVIDIA/trtis-inference-server)ì—ì„œ ì¶”ë¡ ì„ ìœ„í•´ ë°°ì¹˜ë  ìˆ˜ ìˆìŠµë‹ˆë‹¤. ìì„¸í•œ ë‚´ìš©ì€ [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnet_for_triton_from_pytorch)ë¥¼ í™•ì¸í•˜ì‹­ì‹œì˜¤.
 
-### ¿¹½Ã »ç·Ê
+### ì˜ˆì‹œ ì‚¬ë¡€
 
-¾Æ·¡ ¿¹Á¦¿¡¼­´Â »çÀü ÈÆ·ÃµÈ ***ResNet50 v1.5*** ¸ğµ¨À» »ç¿ëÇÏ¿© ***ÀÌ¹ÌÁö***¿¡ ´ëÇÑ Ãß·ĞÀ» ¼öÇà ÇÏ°í °á°ú¸¦ Á¦½ÃÇÒ °ÍÀÔ´Ï´Ù.
+ì•„ë˜ ì˜ˆì œì—ì„œëŠ” ì‚¬ì „ í›ˆë ¨ëœ ***ResNet50 v1.5*** ëª¨ë¸ì„ ì‚¬ìš©í•˜ì—¬ ***ì´ë¯¸ì§€***ì— ëŒ€í•œ ì¶”ë¡ ì„ ìˆ˜í–‰ í•˜ê³  ê²°ê³¼ë¥¼ ì œì‹œí•  ê²ƒì…ë‹ˆë‹¤.
 
-¿¹Á¦¸¦ ½ÇÇàÇÏ·Á¸é ¸î °¡Áö Ãß°¡ ÆÄÀÌ½ã ÆĞÅ°Áö°¡ ¼³Ä¡µÇ¾î ÀÖ¾î¾ß ÇÕ´Ï´Ù. ÀÌ´Â ÀÌ¹ÌÁö¸¦ ÀüÃ³¸®ÇÏ°í ½Ã°¢È­ÇÏ´Â µ¥ ÇÊ¿äÇÕ´Ï´Ù.
+ì˜ˆì œë¥¼ ì‹¤í–‰í•˜ë ¤ë©´ ëª‡ ê°€ì§€ ì¶”ê°€ íŒŒì´ì¬ íŒ¨í‚¤ì§€ê°€ ì„¤ì¹˜ë˜ì–´ ìˆì–´ì•¼ í•©ë‹ˆë‹¤. ì´ëŠ” ì´ë¯¸ì§€ë¥¼ ì „ì²˜ë¦¬í•˜ê³  ì‹œê°í™”í•˜ëŠ” ë° í•„ìš”í•©ë‹ˆë‹¤.
 ```python
 !pip install validators matplotlib
 ```
@@ -63,7 +63,7 @@ device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cp
 print(f'Using {device} for inference')
 ```
 
-IMAGENET µ¥ÀÌÅÍ¼Â¿¡¼­ »çÀü ÈÆ·ÃµÈ ¸ğµ¨À» ·ÎµåÇÕ´Ï´Ù.
+IMAGENET ë°ì´í„°ì…‹ì—ì„œ ì‚¬ì „ í›ˆë ¨ëœ ëª¨ë¸ì„ ë¡œë“œí•©ë‹ˆë‹¤.
 ```python
 resnet50 = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_resnet50', pretrained=True)
 utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_convnets_processing_utils')
@@ -71,7 +71,7 @@ utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_convnets_
 resnet50.eval().to(device)
 ```
 
-»ùÇÃ ÀÔ·Â µ¥ÀÌÅÍ¸¦ ÁØºñÇÕ´Ï´Ù.
+ìƒ˜í”Œ ì…ë ¥ ë°ì´í„°ë¥¼ ì¤€ë¹„í•©ë‹ˆë‹¤.
 ```python
 uris = [
     'http://images.cocodataset.org/test-stuff2017/000000024309.jpg',
@@ -85,7 +85,7 @@ batch = torch.cat(
 ).to(device)
 ```
 
-Ãß·ĞÀ» ½ÇÇàÇÕ´Ï´Ù. `pick_n_best(predictions=output, n=topN)` helper ÇÔ¼ö¸¦ »ç¿ëÇÏ¿© ¸ğµ¨¿¡ µû¶ó °¡Àå °¡´É¼ºÀÌ ³ôÀº °¡¼³À» N°³ ¼±ÅÃÇÕ´Ï´Ù.
+ì¶”ë¡ ì„ ì‹¤í–‰í•©ë‹ˆë‹¤. `pick_n_best(predictions=output, n=topN)` helper í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ì—¬ ëª¨ë¸ì— ë”°ë¼ ê°€ì¥ ê°€ëŠ¥ì„±ì´ ë†’ì€ ê°€ì„¤ì„ Nê°œ ì„ íƒí•©ë‹ˆë‹¤.
 ```python
 with torch.no_grad():
     output = torch.nn.functional.softmax(resnet50(batch), dim=1)
@@ -93,7 +93,7 @@ with torch.no_grad():
 results = utils.pick_n_best(predictions=output, n=5)
 ```
 
-°á°ú¸¦ Ç¥½ÃÇÕ´Ï´Ù.
+ê²°ê³¼ë¥¼ í‘œì‹œí•©ë‹ˆë‹¤.
 ```python
 for uri, result in zip(uris, results):
     img = Image.open(requests.get(uri, stream=True).raw)
@@ -104,12 +104,12 @@ for uri, result in zip(uris, results):
 
 ```
 
-### ¼¼ºÎ»çÇ×
+### ì„¸ë¶€ì‚¬í•­
 For detailed information on model input and output, training recipies, inference and performance visit:
-¸ğµ¨ ÀÔ·Â ¹× Ãâ·Â, ÇĞ½À ¹æ¹ı, Ãß·Ğ ¹× ¼º´É µî¿¡ ´ëÇÑ ´õ ÀÚ¼¼ÇÑ Á¤º¸´Â [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5) ¹× and/or [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnet_50_v1_5_for_pytorch)¿¡¼­ º¼ ¼ö ÀÖ½À´Ï´Ù.
+ëª¨ë¸ ì…ë ¥ ë° ì¶œë ¥, í•™ìŠµ ë°©ë²•, ì¶”ë¡  ë° ì„±ëŠ¥ ë“±ì— ëŒ€í•œ ë” ìì„¸í•œ ì •ë³´ëŠ” [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5) ë° and/or [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnet_50_v1_5_for_pytorch)ì—ì„œ ë³¼ ìˆ˜ ìˆìŠµë‹ˆë‹¤.
 
 
-### Âü°í¹®Çå
+### ì°¸ê³ ë¬¸í—Œ
 
  - [Original ResNet50 v1 paper](https://arxiv.org/abs/1512.03385)
  - [Delving deep into rectifiers: Surpassing human-level performance on ImageNet classification](https://arxiv.org/pdf/1502.01852.pdf)
