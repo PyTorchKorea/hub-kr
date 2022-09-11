@@ -28,7 +28,7 @@ ResNeXt101 모델은 Volta, Turing 및 NVIDIA Ampere 아키텍처에서 Tensor C
 
 혼합 정밀도 학습에는 [NHWC 데이터 레이아웃](https://pytorch.org/tutorials/intermediate/memory_format_tutorial.html)이 사용됩니다. 
 
-Note that the ResNeXt101-32x4d model can be deployed for inference on the [NVIDIA Triton Inference Server](https://github.com/NVIDIA/trtis-inference-server) using TorchScript, ONNX Runtime or TensorRT as an execution backend. For details check [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnext_for_triton_from_pytorch)
+ResNeXt101-32x4d 모델은 추론을 위해 TorchScript, ONNX Runtime 또는 TensorRT를 실행 백엔드로 사용하고 [NVIDIA Triton Inference Server](https://github.com/NVIDIA/trtis-inference-server)에 배포할 수 있습니다. 자세한 내용은 [NGC](https://catalog.ngc.nvidia.com/orgs/nvidia/resources/resnext_for_triton_from_pytorch)에서 확인하세요. 
 
 #### 모델 구조
 
@@ -39,7 +39,6 @@ _이미지 출처: Aggregated Residual Transformations for Deep Neural Networks]
 위의 이미지는 ResNet 모델의 병목 블록과 ResNeXt 모델의 병목 블록의 차이를 나타냅니다.
 
 ResNeXt101-32x4d 모델의 카디널리티(Cardinality)는 32이고 병목 블록의 Width는 4입니다.
-
 ### 예시
 
 아래 예시에서 사전 학습된 ***ResNeXt101-32x4d***모델을 사용하여 이미지들에 대한 추론을 진행하고 결과를 제시합니다.
