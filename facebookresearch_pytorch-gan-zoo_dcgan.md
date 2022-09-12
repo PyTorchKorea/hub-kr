@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: DCGAN on FashionGen
-summary: A simple generative image model for 64x64 images
+summary: 64x64 이미지 생성을 위한 기본 이미지 생성 모델
 category: researchers
 image: dcgan_fashionGen.jpg
 author: FAIR HDGAN
@@ -24,9 +24,7 @@ use_gpu = True if torch.cuda.is_available() else False
 model = torch.hub.load('facebookresearch/pytorch_GAN_zoo:hub', 'DCGAN', pretrained=True, useGPU=use_gpu)
 ```
 
-The input to the model is a noise vector of shape `(N, 120)` where `N` is the number of images to be generated.
-It can be constructed using the function `.buildNoiseData`.
-The model has a `.test` function that takes in the noise vector and generates images.
+모델에 입력하는 잡음(noise) 벡터의 크기는 `(N, 120)` 이며 여기서 `N`은 생성하고자 하는 이미지의 개수입니다. 데이터 생성은 `.buildNoiseData` 함수를 사용하여 데이터를 생성할 수 있습니다. 모델의 `.test` 함수를 사용하면 잡음 벡터를 입력받아 이미지를 생성합니다.
 
 ```python
 num_images = 64
@@ -34,29 +32,28 @@ noise, _ = model.buildNoiseData(num_images)
 with torch.no_grad():
     generated_images = model.test(noise)
 
-# let's plot these images using torchvision and matplotlib
+# torchvision 과 matplotlib 를 사용하여 생성된 이미지들을 시각화합니다.
 import matplotlib.pyplot as plt
 import torchvision
 plt.imshow(torchvision.utils.make_grid(generated_images).permute(1, 2, 0).cpu().numpy())
 # plt.show()
 ```
 
-You should see an image similar to the one on the left.
+왼쪽에 있는 이미지와 유사하다는것을 볼 수 있습니다.
 
-If you want to train your own DCGAN and other GANs from scratch, have a look at [PyTorch GAN Zoo](https://github.com/facebookresearch/pytorch_GAN_zoo).
+만약 자기만의 DCGAN과 다른 GAN을 처음부터 학습시키고 싶다면, [PyTorch GAN Zoo](https://github.com/facebookresearch/pytorch_GAN_zoo) 를 참고하시기 바랍니다.
 
-### Model Description
+### 모델 설명
 
-In computer vision, generative models are networks trained to create images from a given input. In our case, we consider a specific kind of generative networks: GANs (Generative Adversarial Networks) which learn to map a random vector with a realistic image generation.
+컴퓨터 비전 분야에서 생성 모델은 주어진 입력에 대한 이미지를 생성하도록 훈련된 네트워크(networks)입니다. 본 예제에서는 무작위 벡터와 실제 이미지 생성 간의 연결하는 방법을 배우는 GANs (Generative Adversarial Networks) 으로 특정 종류의 생성 네트워크를 살펴봅니다.
 
-DCGAN is a model designed in 2015 by Radford et. al. in the paper [Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](https://arxiv.org/abs/1511.06434). It is a GAN architecture both very simple and efficient for low resolution image generation (up to 64x64).
+DCGAN은 2015년 Radford 등이 설계한 모델 구조입니다. 상세한 내용은 [Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](https://arxiv.org/abs/1511.06434) 논문에서 확인할 수 있습니다. 모델은 GAN 구조이며 저해상도 이미지 (최대 64x64) 생성에 매우 간편하고 효율적입니다.
 
 
+### 요구 사항
 
-### Requirements
+- 현재는 오직 Python 3 에서만 지원됩니다.
 
-- Currently only supports Python 3
-
-### References
+### 참고문헌
 
 - [Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](https://arxiv.org/abs/1511.06434)
