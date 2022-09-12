@@ -45,7 +45,7 @@ Neural Machine Translation][3] 논문의 모델을 활용합니다:
 ```python
 import torch
 
-# WMT'14 data에서 학습된 영-불 트랜스포머 모델 불러오기:
+# WMT'14 data에서 학습된 영어 ➡️ 프랑스어 트랜스포머 모델 불러오기:
 en2fr = torch.hub.load('pytorch/fairseq', 'transformer.wmt14.en-fr', tokenizer='moses', bpe='subword_nmt')
 
 # GPU 사용 (선택사항):
@@ -96,27 +96,27 @@ translation competition][8]의 수상작입니다.
 ```python
 import torch
 
-# WMT'19 data에서 학습된 영-독 트랜스포머 모델 불러오기:
+# WMT'19 data에서 학습된 영어 ➡️ 독일어 트랜스포머 모델 불러오기:
 en2de = torch.hub.load('pytorch/fairseq', 'transformer.wmt19.en-de.single_model', tokenizer='moses', bpe='fastbpe')
 
 # 기본 트랜스포머 모델에 접근
 assert isinstance(en2de.models[0], torch.nn.Module)
 
-# 영-독 번역
+# 영어 ➡️ 독일어 번역
 de = en2de.translate('PyTorch Hub is a pre-trained model repository designed to facilitate research reproducibility.')
 assert de == 'PyTorch Hub ist ein vorgefertigtes Modell-Repository, das die Reproduzierbarkeit der Forschung erleichtern soll.'
 ```
 
-교차 번역으로 같은 문장에 대한 의역을 만들 수도 있습니다:
+교차번역으로 같은 문장에 대한 의역을 만들 수도 있습니다:
 ```python
-# 영어과 독일어 교차번역:
+# 영어 ↔️ 독일어 교차번역:
 en2de = torch.hub.load('pytorch/fairseq', 'transformer.wmt19.en-de.single_model', tokenizer='moses', bpe='fastbpe')
 de2en = torch.hub.load('pytorch/fairseq', 'transformer.wmt19.de-en.single_model', tokenizer='moses', bpe='fastbpe')
 
 paraphrase = de2en.translate(en2de.translate('PyTorch Hub is an awesome interface!'))
 assert paraphrase == 'PyTorch Hub is a fantastic interface!'
 
-# 영어-러시아어 교차번역과 비교:
+# 영어 ↔️ 러시아어 교차번역과 비교:
 en2ru = torch.hub.load('pytorch/fairseq', 'transformer.wmt19.en-ru.single_model', tokenizer='moses', bpe='fastbpe')
 ru2en = torch.hub.load('pytorch/fairseq', 'transformer.wmt19.ru-en.single_model', tokenizer='moses', bpe='fastbpe')
 
