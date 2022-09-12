@@ -49,7 +49,7 @@ preprocess = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
 input_tensor = preprocess(input_image)
-input_batch = input_tensor.unsqueeze(0) # 모델에서 상정하는 미니배치 생성
+input_batch = input_tensor.unsqueeze(0) # 모델에서 요구하는 형태의 미니배치 생성
 
 # 사용 가능한 경우 속도를 위해 입력 데이터와 모델을 GPU로 이동
 if torch.cuda.is_available():
