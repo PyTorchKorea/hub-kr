@@ -25,18 +25,14 @@ model = torch.hub.load('pytorch/vision:v0.10.0', 'fcn_resnet50', pretrained=True
 model.eval()
 ```
 
-All pre-trained models expect input images normalized in the same way,
-i.e. mini-batches of 3-channel RGB images of shape `(N, 3, H, W)`, where `N` is the number of images, `H` and `W` are expected to be at least `224` pixels.
-The images have to be loaded in to a range of `[0, 1]` and then normalized using `mean = [0.485, 0.456, 0.406]`
-and `std = [0.229, 0.224, 0.225]`.
-
-The model returns an `OrderedDict` with two Tensors that are of the same height and width as the input Tensor, but with 21 classes.
-`output['out']` contains the semantic masks, and `output['aux']` contains the auxillary loss values per-pixel. In inference mode, `output['aux']` is not useful.
-So, `output['out']` is of shape `(N, 21, H, W)`. More documentation can be found [here](https://pytorch.org/vision/stable/models.html#object-detection-instance-segmentation-and-person-keypoint-detection).
+모든 사전 훈련된 모델은 동일한 방식으로 정규화된 입력 이미지, 즉 N이 이미지 수이고, H와 W는 최소 224픽셀인 (N, 3, H, W)형태의 3채널 RGB 이미지의 미니 배치를 요구합니다. 
+이미지를 [0, 1] 범위로 로드한 다음 mean = [0.485, 0.456, 0.406] 및 std = [0.229, 0.224, 0.225]를 사용하여 정규화해야 합니다.
+모델은 입력 텐서와 높이와 너비는 같지만 클래스가 21개인 텐서를 가진 'OrderedDict'를 반환합니다. output['out']에는 시멘틱 마스크가 포함되며 output['aux']에는 픽셀당 보조 손실 값이 포함됩니다. 추론 모드에서는 output['aux']이 유용하지 않습니다.
+그래서 output['out']의 크기는 (N, 21, H, W)입니다. 추가 설명서는 [여기]에서 찾을 수 있습니다.(https://pytorch.org/vision/stable/models.html#object-detection-instance-segmentation-and-person-keypoint-detection).
 
 
 ```python
-# Download an example image from the pytorch website
+# 파이토치 웹사이트에서 예제 이미지 다운로드
 import urllib
 url, filename = ("https://github.com/pytorch/hub/raw/master/images/deeplab1.png", "deeplab1.png")
 try: urllib.URLopener().retrieve(url, filename)
@@ -44,7 +40,7 @@ except: urllib.request.urlretrieve(url, filename)
 ```
 
 ```python
-# sample execution (requires torchvision)
+# 실행 예시 (torchvision 필요)
 from PIL import Image
 from torchvision import transforms
 input_image = Image.open(filename)
@@ -55,9 +51,9 @@ preprocess = transforms.Compose([
 ])
 
 input_tensor = preprocess(input_image)
-input_batch = input_tensor.unsqueeze(0) # create a mini-batch as expected by the model
+input_batch = input_tensor.unsqueeze(0) # 모델에서 요구되는 미니배치 생성
 
-# move the input and model to GPU for speed if available
+# 가능하다면 속도를 위해 입력과 모델을 GPU로 옮깁니다
 if torch.cuda.is_available():
     input_batch = input_batch.to('cuda')
     model.to('cuda')
@@ -67,18 +63,15 @@ with torch.no_grad():
 output_predictions = output.argmax(0)
 ```
 
-The output here is of shape `(21, H, W)`, and at each location, there are unnormalized probabilities corresponding to the prediction of each class.
-To get the maximum prediction of each class, and then use it for a downstream task, you can do `output_predictions = output.argmax(0)`.
-
-Here's a small snippet that plots the predictions, with each color being assigned to each class (see the visualized image on the left).
+여기서의 출력은 형태(21, H, W)이며, 각 위치에는 각 클래스의 예측에 해당하는 정규화되지 않은 확률이 있습니다. 각 클래스의 최대 예측을 가져온 다음 이를 다운스트림 작업에 사용하려면 `output_propertions = output.slmax(0)`를 수행합니다. 다음은 각 클래스에 할당된 각 색상과 함께 예측을 표시하는 작은 토막글 입니다(왼쪽의 시각화 이미지 참조).
 
 ```python
-# create a color pallette, selecting a color for each class
+# 각 클래스에 대한 색상을 선택하여 색상 팔레트를 만듭니다.
 palette = torch.tensor([2 ** 25 - 1, 2 ** 15 - 1, 2 ** 21 - 1])
 colors = torch.as_tensor([i for i in range(21)])[:, None] * palette
 colors = (colors % 255).numpy().astype("uint8")
 
-# plot the semantic segmentation predictions of 21 classes in each color
+# 각 색상의 21개 클래스의 시멘틱 세그멘테이션 예측을 그림으로 표시합니다.
 r = Image.fromarray(output_predictions.byte().cpu().numpy()).resize(input_image.size)
 r.putpalette(colors)
 
@@ -87,12 +80,11 @@ plt.imshow(r)
 # plt.show()
 ```
 
-### Model Description
+### 모델 설명
 
-FCN-ResNet is constructed by a Fully-Convolutional Network model, using a ResNet-50 or a ResNet-101 backbone.
-The pre-trained models have been trained on a subset of COCO train2017, on the 20 categories that are present in the Pascal VOC dataset.
+FCN-ResNet은 ResNet-50 또는 ResNet-101 백본을 사용하여 완전 컨볼루션 네트워크 모델로 구성됩니다. 사전 훈련된 모델은 Pascal VOC 데이터 세트에 존재하는 20개 범주에 대한 COCO 2017의 하위 집합에 대해 훈련 되었습니다.
 
-Their accuracies of the pre-trained models evaluated on COCO val2017 dataset are listed below.
+COCO val 2017 데이터셋에서 평가된 사전 훈련된 모델의 정확성은 아래에 나열되어 있습니다.
 
 | Model structure |   Mean IOU  | Global Pixelwise Accuracy |
 | --------------- | ----------- | --------------------------|
