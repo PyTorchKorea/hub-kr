@@ -22,18 +22,18 @@ demo-model-link: https://huggingface.co/spaces/pytorch/PGAN
 import torch
 use_gpu = True if torch.cuda.is_available() else False
 
-# 이 모델은 유명인들의 고해상도 얼굴 데이터셋 "celebA"로 학습되었습니다
-# 아래 모델의 출력은 512 x 512 픽셀의 이미지입니다
+# 이 모델은 유명인들의 고해상도 얼굴 데이터셋 "celebA"로 학습되었습니다.
+# 아래 모델의 출력은 512 x 512 픽셀의 이미지입니다.
 model = torch.hub.load('facebookresearch/pytorch_GAN_zoo:hub',
                        'PGAN', model_name='celebAHQ-512',
                        pretrained=True, useGPU=use_gpu)
-# 아래 모델의 출력은 256 x 256 픽셀의 이미지입니다
+# 아래 모델의 출력은 256 x 256 픽셀의 이미지입니다.
 # model = torch.hub.load('facebookresearch/pytorch_GAN_zoo:hub',
 #                        'PGAN', model_name='celebAHQ-256',
 #                        pretrained=True, useGPU=use_gpu)
 ```
 
-모델의 입력값으로는 `(N, 512)`크기의 노이즈(noise) 벡터입니다. `N`은 생성하고자 하는 이미지의 개수를 뜻합니다.
+모델의 입력은 `(N, 512)` 크기의 노이즈(noise) 벡터입니다. `N`은 생성하고자 하는 이미지의 개수를 뜻합니다.
 이 노이즈 벡터들은 함수 `.buildNoiseData`를 통하여 생성 할 수 있습니다.
 이 모델은 노이즈 벡터를 받아서 이미지를 생성하는 `.test` 함수를 가지고 있습니다.
 
@@ -63,8 +63,8 @@ GAN의 점진적인 증가(Progressive Growing of GANs)는 Karras와 그 외[1]�
 
 ### 요구사항
 
-- 현재는 Python3 에서만 지원합니다
+- 현재는 Python3 에서만 지원합니다.
 
 ### 참고
 
-- [Progressive Growing of GANs for Improved Quality, Stability, and Variation](https://arxiv.org/abs/1710.10196)
+- [1] Tero Karras et al, [Progressive Growing of GANs for Improved Quality, Stability, and Variation](https://arxiv.org/abs/1710.10196)
