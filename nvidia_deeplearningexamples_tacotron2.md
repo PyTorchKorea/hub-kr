@@ -89,7 +89,7 @@ Audio(audio_numpy, rate=rate)
 ```
 
 ### 세부사항
-모델 입력 및 출력, 학습 방법, 추론 및 성능 등에 대한 더 자세한 정보는 [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/Classification/ConvNets/resnet50v1.5) 및 and/or [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnet_50_v1_5_for_pytorch)에서 볼 수 있습니다.
+모델 입력 및 출력, 학습 방법, 추론 및 성능 등에 대한 더 자세한 정보는 [github](https://github.com/NVIDIA/DeepLearningExamples/tree/master/PyTorch/SpeechSynthesis/Tacotron2) 및 and/or  [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:tacotron_2_and_waveglow_for_pytorch)에서 볼 수 있습니다.
 
 ### 참고문헌
 
