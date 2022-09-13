@@ -31,7 +31,7 @@ model.eval()
 여기서부터는 예시 코드 입니다.
 
 ```python
-# pytorch 웹사이트에서 예시 이미지를 다운로드 합니다
+# pytorch 웹사이트에서 예시 이미지를 다운로드 합니다.
 import urllib
 url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
 try: urllib.URLopener().retrieve(url, filename)
@@ -39,7 +39,7 @@ except: urllib.request.urlretrieve(url, filename)
 ```
 
 ```python
-# 실행 예시 코드 (torchvision 필요)
+# 실행 예시 코드 (torchvision 필요합니다)
 from PIL import Image
 from torchvision import transforms
 input_image = Image.open(filename)
@@ -50,7 +50,7 @@ preprocess = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
 input_tensor = preprocess(input_image)
-input_batch = input_tensor.unsqueeze(0) # 모델에 맞추어 미니배치를 생성 합니다
+input_batch = input_tensor.unsqueeze(0) # 모델에 맞추어 미니배치를 생성 합니다.
 
 # 연산속도를 위해 input과 모델을 GPU에 로드 합니다
 if torch.cuda.is_available():
@@ -59,23 +59,23 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# ImageNet 1000개의 클래스의 신뢰점수를 포함하는 (1000,) 의 텐서를 return 합니다
+# ImageNet 1000개의 클래스의 신뢰점수를 포함하는 (1000,) 의 텐서를 return 합니다.
 print(output[0])
-# output은 정규화되지 않은 신뢰 점수로 얻어집니다. 확률을 얻기 위해 소프트맥스를 사용할 수 있습니다
+# output은 정규화되지 않은 신뢰 점수로 얻어집니다. 확률을 얻기 위해 소프트맥스를 사용할 수 있습니다.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
 print(probabilities)
 ```
 
 ```
-# ImageNet의 라벨을 다운로드 합니다
+# ImageNet의 라벨을 다운로드 합니다.
 !wget https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt
 ```
 
 ```
-# 카테고리를 읽어옵니다
+# 카테고리를 읽어옵니다.
 with open("imagenet_classes.txt", "r") as f:
     categories = [s.strip() for s in f.readlines()]
-# 이미지 마다 확률값이 가장 높은 범주 출력 합니다
+# 이미지 마다 확률값이 가장 높은 범주 출력 합니다.
 top5_prob, top5_catid = torch.topk(probabilities, 5)
 for i in range(top5_prob.size(0)):
     print(categories[top5_catid[i]], top5_prob[i].item())
