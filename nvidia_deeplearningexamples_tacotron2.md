@@ -28,7 +28,7 @@ Tacotron 2 모델의 구현은 본 논문에서 설명한 모델과 다릅니다
 
 아래 예제에서는:
 - 사전 훈련된 Tacotron2 및 Waveglow 모델은 torch.hub에서 로드됩니다.
-- Tacotron2는 입력 텍스트의 텐서 표현이 주어지면 멜 스펙트로그램을 생성합니다. ("Hello world, I miss you so much")
+- Tacotron2는 ("Hello world, I miss you so much")와 같은 입력 텍스트의 텐서 표현이 주어지면 왼쪽 그림과 같은 멜 스펙트로그램을 생성합니다. 
 - Waveglow는 멜 스펙트로그램에서 사운드를 생성합니다.
 - 출력 사운드는 'audio.wav' 파일에 저장됩니다.
 
