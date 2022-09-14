@@ -32,7 +32,7 @@ The model is initialized as described in [Delving deep into rectifiers: Surpassi
 
 This model is trained with mixed precision using Tensor Cores on Volta, Turing, and the NVIDIA Ampere GPU architectures. Therefore, researchers can get results over 2x faster than training without Tensor Cores, while experiencing the benefits of mixed precision training. This model is tested against each NGC monthly container release to ensure consistent accuracy and performance over time.
 
-이 모델은 Volta, Turing 및 NVIDIA Ampere GPU 아키텍처의 Tensor 코어를 사용하여 혼합 정밀도로 학습됩니다. 따라서 연구자들은 혼합 정밀 교육의 이점을 경험하면서 Tensor Core 없이 학습하는 것보다 2배 이상 빠른 결과를 얻을 수 있습니다. 이 모델은 시간이 지남에 따라 일관된 정확성과 성능을 보장하기 위해 각 NGC 월별 컨테이너 릴리스에 대해 테스트됩니다.
+이 모델은 Volta, Turing 및 NVIDIA Ampere GPU 아키텍처의 Tensor 코어를 사용하여 혼합 정밀도(mixed precision)로 학습됩니다. 따라서 연구자들은 혼합 정밀 교육의 이점을 경험하면서 Tensor Core 없이 학습하는 것보다 2배 이상 빠른 결과를 얻을 수 있습니다. 이 모델은 시간이 지남에 따라 일관된 정확성과 성능을 보장하기 위해 각 NGC 월별 컨테이너 릴리스에 대해 테스트됩니다.
 
 Note that the ResNet50 v1.5 model can be deployed for inference on the [NVIDIA Triton Inference Server](https://github.com/NVIDIA/trtis-inference-server) using TorchScript, ONNX Runtime or TensorRT as an execution backend. For details check [NGC](https://ngc.nvidia.com/catalog/resources/nvidia:resnet_for_triton_from_pytorch)
 
