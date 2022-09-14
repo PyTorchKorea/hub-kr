@@ -60,7 +60,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# Imagnet의 1000개 클래스에 대한 신뢰도 점수를 가진 1000 형태의 텐서 출력
+# Imagenet의 1000개 클래스에 대한 신뢰도 점수를 가진 1000 형태의 텐서 출력
 print(output[0])
 # 출력은 정규화되어있지 않습니다. 소프트맥스를 실행하여 확률을 얻을 수 있습니다.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
