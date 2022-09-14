@@ -72,7 +72,7 @@ except: urllib.request.urlretrieve(json_url, json_filename)
 with open(json_filename, "r") as f:
     kinetics_classnames = json.load(f)
 
-# 레이블 이름 매핑에 대한 ID 만들기
+# id-레이블 이름 매핑 만들기
 kinetics_id_to_classname = {}
 for k, v in kinetics_classnames.items():
     kinetics_id_to_classname[v] = str(k).replace('"', "")
