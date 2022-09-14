@@ -24,7 +24,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/ResNeXt101
 
 이 모델은 일반적인 ResNet 모델에 기반을 두고 있으며 ResNet의 3x3 그룹 합성곱(Grouped Convolution) 계층을 병목 블록(Bottleneck Block) 내부의 3x3 합성곱 계층으로 대체합니다.
 
-ResNeXt101 모델은 Volta, Turing 및 NVIDIA Ampere 아키텍처에서 Tensor Core를 사용하여 혼합 정밀도(Mixed Precision) 방식<sup>[1](#혼합 정밀도(Mixed Precision) 방식)</sup>[1]으로 학습됩니다. 따라서 연구자들은 혼합 정밀도 학습의 장점을 경험하는 동시에 Tensor Cores를 사용하지 않을 때보다 결과를 3배 빠르게 얻을 수 있습니다. 이 모델은 시간이 지남에도 지속적인 정확도와 성능을 유지하기 위해 월별 NGC 컨테이너 출시에 대해 테스트되고 있습니다.
+ResNeXt101 모델은 Volta, Turing 및 NVIDIA Ampere 아키텍처에서 Tensor Core를 사용하여 혼합 정밀도(Mixed Precision) 방식<sup>[1]</sup>으로 학습됩니다. 따라서 연구자들은 혼합 정밀도 학습의 장점을 경험하는 동시에 Tensor Cores를 사용하지 않을 때보다 결과를 3배 빠르게 얻을 수 있습니다. 이 모델은 시간이 지남에도 지속적인 정확도와 성능을 유지하기 위해 월별 NGC 컨테이너 출시에 대해 테스트되고 있습니다.
 
 혼합 정밀도 학습에는 [NHWC 데이터 레이아웃](https://pytorch.org/tutorials/intermediate/memory_format_tutorial.html)이 사용됩니다. 
 
