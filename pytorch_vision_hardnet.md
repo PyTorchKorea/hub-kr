@@ -86,7 +86,7 @@ for i in range(top5_prob.size(0)):
 
 ### 모델 설명
 
-HardDNet(Harmonic DenseNet)은 낮은 메모리 트래픽을 가지는 CNN 모델로 빠르고 효율적입니다.
+HarDNet(Harmonic DenseNet)은 낮은 메모리 트래픽을 가지는 CNN 모델로 빠르고 효율적입니다.
 기본 개념은 계산 비용과 메모리 접근 비용을 동시에 최소화하는 것입니다. 따라서 HardDNet 모델은 동일한 정확도를 가진 ResNet 모델에 비해 GPU에서 실행되는 속도가 35% 더 빠릅니다. (MobileNet과 비교하기 위해 설계된 두 DS 모델은 제외)
 
 아래에는 각각 깊이별 분리 가능한 Conv 레이어가 있거나 없는 39, 68, 85개의 레이어를 포함한 4가지 버전의 HardNet 모델이 있습니다.
