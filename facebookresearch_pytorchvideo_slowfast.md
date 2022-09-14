@@ -146,7 +146,7 @@ except: urllib.request.urlretrieve(url_link, video_path)
 영상을 불러오고 모델에 필요한 입력 형식으로 변환합니다.
 
 ```python
-# 시작 및 종료 구간을 지정하여 불러올 클립의 길이 선택합니다.
+# 시작 및 종료 구간을 지정하여 불러올 클립의 길이를 선택합니다.
 # start_sec는 영상에서 행동이 시작되는 위치와 일치해야합니다.
 start_sec = 0
 end_sec = start_sec + clip_duration
