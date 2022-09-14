@@ -147,7 +147,7 @@ except: urllib.request.urlretrieve(url_link, video_path)
 
 ```python
 # 시작 및 종료 구간을 지정하여 불러올 클립의 길이를 선택합니다.
-# start_sec는 영상에서 행동이 시작되는 위치와 일치해야합니다.
+# start_sec는 영상에서 행동이 시작되는 위치와 일치해야 합니다.
 start_sec = 0
 end_sec = start_sec + clip_duration
 
