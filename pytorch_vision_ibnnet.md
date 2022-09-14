@@ -58,7 +58,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# Imagnet의 1000개 클래스에 대한 신뢰도 점수를 가진 1000 형태의 Tensor 출력
+# ImageNet의 1000개 클래스에 대한 신뢰도 점수를 가진 1000 형태의 Tensor 출력
 print(output[0])
 # 출력은 정규화되어있지 않습니다. 소프트맥스를 실행하여 확률을 얻을 수 있습니다.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
@@ -83,7 +83,7 @@ for i in range(top5_prob.size(0)):
 ### 모델 설명
 
 IBN-Net은 도메인/외관 불변성을 갖는 CNN 모델입니다.
-style transfer에 동기를 부여받은 IBN-Net은 단일 심층 네트워크에서 인스턴스 정규화와 일괄 정규화를 신중하게 통합합니다.
+Style transfer에 영감을 얻어 IBN-Net은 단일 심층 네트워크에서 인스턴스 정규화와 일괄 정규화를 신중하게 통합합니다.
 모델 복잡성을 추가하지 않고 모델링 및 범용성을 모두 증가시키는 간단한 방법을 제공합니다. 
 IBN-Net은 특히 교차 도메인 또는 사람/차량 재식별 작업에 적합합니다.
 
