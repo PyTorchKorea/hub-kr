@@ -144,7 +144,7 @@ inputs = inputs.to(device)
 #### 예측값 구하기
 
 ```python
-# 모델을 통해 입력클립을 전달합니다.
+# 모델을 통해 입력 클립을 전달합니다.
 preds = model(inputs[None, ...])
 
 # 예측된 클래스를 가져옵니다.
