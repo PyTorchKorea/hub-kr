@@ -42,7 +42,7 @@ except: urllib.request.urlretrieve(url, filename)
 ```
 
 ```python
-# 실행예시 (torchvision이 요구됩니다.)
+# 실행예시 (torchvision이 요구됩니다)
 from PIL import Image
 from torchvision import transforms
 input_image = Image.open(filename)
@@ -62,7 +62,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# Imagnet의 1000개 클래스에 대한 신뢰도 점수를 가진 1000 형태의 텐서 출력
+# ImageNet의 1000개 클래스에 대한 신뢰도 점수를 가진 1000 형태의 Tensor 출력
 print(output[0])
 # 출력은 정규화되어있지 않습니다. 소프트맥스를 실행하여 확률을 얻을 수 있습니다.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
@@ -87,7 +87,7 @@ for i in range(top5_prob.size(0)):
 ### 모델 설명
 
 HardDNet(Harmonic DenseNet)은 낮은 메모리 트래픽을 가지는 CNN 모델로 빠르고 효율적입니다.
-기본 개념은 계산 비용과 메모리 접근 비용을 최소화하는 것입니다. 따라서 HardDNet 모델은 동일한 정확도를 가진 ResNet 모델에 비해 GPU에서 실행되는 속도가 35% 더 빠릅니다. (MobileNet과 비교하기 위해 설계된 두 DS 모델은 제외)
+기본 개념은 계산 비용과 메모리 접근 비용을 동시에 최소화하는 것입니다. 따라서 HardDNet 모델은 동일한 정확도를 가진 ResNet 모델에 비해 GPU에서 실행되는 속도가 35% 더 빠릅니다. (MobileNet과 비교하기 위해 설계된 두 DS 모델은 제외)
 
 아래에는 각각 깊이별 분리 가능한 Conv 레이어가 있거나 없는 39, 68, 85개의 레이어를 포함한 4가지 버전의 HardNet 모델이 있습니다.
 사전 훈련된 모델에 대해 ImageNet 데이터셋의 1-crop 오류율은 아래에 나열되어 있습니다.
