@@ -78,7 +78,7 @@ for k, v in kinetics_classnames.items():
     kinetics_id_to_classname[v] = str(k).replace('"', "")
 ```
 
-#### 입력 형태에 대한 정의
+#### 입력 변환에 대한 정의
 
 ```python
 side_size = 256
