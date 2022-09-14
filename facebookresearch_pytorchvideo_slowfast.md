@@ -158,7 +158,7 @@ video = EncodedVideo.from_path(video_path)
 # 원하는 클립을 불러옵니다.
 video_data = video.get_clip(start_sec=start_sec, end_sec=end_sec)
 
-# 영상 입력을 정규화하기 위해 transform 함수를 적용합니다.
+# 영상 입력을 정규화하기 위해 변형(transform) 함수를 적용합니다.
 video_data = transform(video_data)
 
 # 입력을 원하는 디바이스로 이동합니다.
