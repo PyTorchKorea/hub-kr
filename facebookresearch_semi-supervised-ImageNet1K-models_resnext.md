@@ -77,7 +77,7 @@ print(torch.nn.functional.softmax(output[0], dim=0))
 
 ```
 
-### Model Description
+### 모델 설명
 본 문서에선 [Billion-scale Semi-Supervised Learning for Image Classification](https://arxiv.org/abs/1905.00546)에서 제안된 Semi-supervised, Semi-weakly supervised 방식의 ImageNet 분류 모델을 다룹니다.
 
 "Semi-supervised" 방식에서 대용량(hight-capacity)의 teacher 모델은 ImageNet1K 훈련 데이터로 학습됩니다. student 모델은 레이블이 없는 YFCC100M의 일부 이미지를 활용해 사전 학습하며, 이후 ImageNet1K의 훈련 데이터를 통해서 파인 튜닝합니다. 자세한 사항은 앞서 언급한 논문에서 확인할 수 있습니다.
@@ -103,7 +103,7 @@ print(torch.nn.functional.softmax(output[0], dim=0))
 | ResNeXt-101 32x16d | semi-weakly supervised |193M    | 36B   |  **84.8**    |  97.4    |
 
 
-## Citation
+## 인용
 
 저장소에 공개된 모델을 사용할 땐, 다음 논문을 인용해주세요. ([Billion-scale Semi-Supervised Learning for Image Classification](https://arxiv.org/abs/1905.00546))
 ```
