@@ -20,7 +20,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/ResNeXt101
 
 ### 모델 설명
 
-***ResNeXt101-32x4d*** 모델은 [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/pdf/1611.05431.pdf) 논문에서 소개되었습니다.
+***ResNeXt101-32x4d***는 [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/pdf/1611.05431.pdf) 논문에 소개된 모델입니다.
 
 이 모델은 일반적인 ResNet 모델에 기반을 두고 있으며 ResNet의 3x3 그룹 합성곱(Grouped Convolution) 계층을 병목 블록(Bottleneck Block) 내부의 3x3 합성곱 계층으로 대체합니다.
 
