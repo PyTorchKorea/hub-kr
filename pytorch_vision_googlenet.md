@@ -23,13 +23,13 @@ model = torch.hub.load('pytorch/vision:v0.10.0', 'googlenet', pretrained=True)
 model.eval()
 ```
 
-모든 사전 훈련된 모델들은 입력 이미지가 동일한 방식으로 정규화되었다고 상정합니다.
+사전 훈련된 모델들을 사용할 때는 동일한 방식으로 정규화된 이미지를 입력으로 넣어야 합니다.
 즉, 미니 배치(mini-batch)의 3-채널 RGB 이미지들은 `(3 x H x W)`의 형태를 가지며, 해당 `H`와 `W`는 최소 `224` 이상이어야 합니다.
-각 이미지는 `[0, 1]`의 범위 내에서 로드되어야 하며, `mean = [0.485, 0.456, 0.406]` 과 `std = [0.229, 0.224, 0.225]`을 이용해 정규화되어야 합니다.
+각 이미지는 `[0, 1]`의 범위 내에서 불러와야 하며, `mean = [0.485, 0.456, 0.406]` 과 `std = [0.229, 0.224, 0.225]`을 이용해 정규화되어야 합니다.
 다음은 실행 예제 입니다.
 
 ```python
-# 파이토치 웹 사이트에서 다운로드한 이미지 입니다.
+# 파이토치 웹 사이트에서 이미지 다운로드
 import urllib
 url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
 try: urllib.URLopener().retrieve(url, filename)
@@ -57,9 +57,9 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# output은 shape가 [1000]인 Tensor 자료형이며, 이는 Imagenet 데이터셋의 1000개의 각 클래스에 대한 모델의 확신도(confidence)를 나타냅니다.
+# output은 shape가 [1000]인 Tensor 자료형이며, 이는 ImageNet 데이터셋의 1000개의 각 클래스에 대한 모델의 확신도(confidence)를 나타냄
 print(output[0])
-# output은 정규화되지 않았으므로, 확률화하기 위해 softmax 함수를 처리합니다.
+# output은 정규화되지 않았으므로, 확률화하기 위해 softmax 함수를 처리
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
 print(probabilities)
 ```
@@ -82,7 +82,7 @@ for i in range(top5_prob.size(0)):
 
 ### 모델 설명
 
-GoogLeNet은 코드네임 "Inception"으로 불리는 신경망 아키텍처에 기반한 깊은 합성곱 신경망입니다. 이 모델은 ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC 2014) 에서 새로운 SOTA(state of the art)를 달성했습니다. 사전훈련된 모델로 ImageNet 데이터셋에서의 단일-크롭 방식으로 오류 비율을 측정한 결과는 아래와 같습니다.
+GoogLeNet은 코드네임 "Inception"으로 불리는 신경망 아키텍처에 기반한 깊은 합성곱 신경망입니다. 이 모델은 ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC 2014) 에서 새로운 SOTA(state of the art)를 달성했습니다. 사전 훈련된 모델로 ImageNet 데이터셋에서의 단일-크롭 방식으로 오류 비율을 측정한 결과는 아래와 같습니다.
 
 | 모델 구조 | Top-1 오류 | Top-5 오류 |
 | --------------- | ----------- | ----------- |
