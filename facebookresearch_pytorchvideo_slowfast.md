@@ -59,7 +59,6 @@ model = model.eval()
 model = model.to(device)
 ```
 
-Download the id to label mapping for the Kinetics 400 dataset on which the torch hub models were trained. This will be used to get the category label names from the predicted class ids.
 토치 허브 모델이 훈련된 Kinetics 400 데이터셋에 대해 ID에서의 레이블 매핑 정보를 다운로드합니다. 이는 예측된 클래스 ID에서 카테고리 레이블 이름을 가져오는데 사용됩니다.
 
 ```python
@@ -147,7 +146,7 @@ except: urllib.request.urlretrieve(url_link, video_path)
 영상을 불러오고 모델에 필요한 입력 형식으로 변환합니다.
 
 ```python
-# 시작 및 종료 기간을 지정하여 불러올 클립의 기간을 선택합니다.
+# 시작 및 종료 구간을 지정하여 불러올 클립의 길이 선택합니다.
 # start_sec는 영상에서 행동이 시작되는 위치와 일치해야합니다.
 start_sec = 0
 end_sec = start_sec + clip_duration
@@ -169,7 +168,7 @@ inputs = [i.to(device)[None, ...] for i in inputs]
 #### 예측값 구하기
 
 ```python
-# 모델을 통해 입력클립을 전달합니다.
+# 모델을 통해 입력 클립을 전달합니다.
 preds = model(inputs)
 
 # 예측된 클래스를 가져옵니다.
