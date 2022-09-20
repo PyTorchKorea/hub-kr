@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: WaveGlow
-summary: mel spectrograms에서 발생시키기 위한 WaveGlow 모델입니다 (Tacotron2 모델에서 발생했다)
+summary: Tacotron2이 만들어낸 mel spectrograms을 소비하여 음성을 생성하기 위한 WaveGlow 모델입니다.
 category: researchers
 image: nvidia_logo.png
 author: NVIDIA
@@ -32,7 +32,7 @@ Tacotron2 및 WaveGlow 모델은 사용자가 추가 운율 정보 없이 원본
 - 출력된 소리는 'audio.wav' 파일에 저장됩니다.
 
 예제를 실행하려면 추가 파이썬 패키지가 설치되어 있어야 합니다.
-텍스트 및 오디오는 물론 디스플레이 및 입력/출력 전처리에 필요합니다.
+텍스트 및 오디오 뿐만 아니라 디스플레이 및 입력/출력 전처리에 필요합니다.
 ```bash
 pip install numpy scipy librosa unidecode inflect librosa
 apt-get update
@@ -59,7 +59,7 @@ tacotron2 = tacotron2.to('cuda')
 tacotron2.eval()
 ```
 
-이제 모델에게 이렇게 말해봅니다:
+이제 모델이 이렇게 말하게 해봅시다 :
 ```python
 text = "hello world, I missed you so much"
 ```
