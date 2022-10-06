@@ -90,7 +90,7 @@ for i in range(top5_prob.size(0)):
 
 MEAL V2 모델들은 [MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracy on ImageNet without Tricks](https://arxiv.org/pdf/2009.08453.pdf) 논문에 기반합니다. 
 
-MEAL V2의 주요 관점은 distillation 과정에 One-Hot 레이블을 사용하지 않는다는 것입니다. MEAL V2는 판별자를 이용한 knowledge distillation 앙상블 기법인 MEAL(https://arxiv.org/abs/1812.02425)에 기초하며, MEAL을 단순화하기 위해 다음의 수정을 거쳤습니다. 1) 판별자 입력, 유사도 손실 계산에 최종 출력만을 활용합니다. 2) 모든 teacher들의 예측 확률을 평균 내어 distillation에 활용합니다. 이를 통해 MEAL V2는 어떠한 트릭 사용 없이도 ResNet-50의 ImageNet Top-1 정확도를 80% 이상 기록할 수 있습니다. (트릭 : 1) 모델 구조 변경; 2) ImageNet 외 추가 데이터 활용; 3) autoaug/randaug; 4) cosine learning rate; 5) mixup/cutmix; 6) label smoothing; etc)
+MEAL V2의 주요 관점은 distillation 과정에 One-Hot 레이블을 사용하지 않는다는 것입니다. MEAL V2는 판별자를 이용한 knowledge distillation 앙상블 기법인 [MEAL](https://arxiv.org/abs/1812.02425)에 기초하며, MEAL을 단순화하기 위해 다음의 수정을 거쳤습니다. 1) 판별자 입력, 유사도 손실 계산에 최종 출력만을 활용합니다. 2) 모든 teacher들의 예측 확률을 평균 내어 distillation에 활용합니다. 이를 통해 MEAL V2는 어떠한 트릭 사용 없이도 ResNet-50의 ImageNet Top-1 정확도를 80% 이상 기록할 수 있습니다. (트릭 : 1) 모델 구조 변경; 2) ImageNet 외 추가 데이터 활용; 3) autoaug/randaug; 4) cosine learning rate; 5) mixup/cutmix; 6) label smoothing; etc)
 
 | Models | Resolution| #Parameters | Top-1/Top-5 |
 | :---: | :-: | :-: | :------:| :------: | 
