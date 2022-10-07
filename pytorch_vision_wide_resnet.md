@@ -86,7 +86,7 @@ for i in range(top5_prob.size(0)):
 ### 모델 설명
 
 Wide Residual 네트워크는 ResNet에 비해 단순히 채널 수가 증가했습니다. 
-그렇지 않으면 아키텍처가 동일합니다. 
+이외의 아키텍처는 ResNet과 동일합니다. 
 병목(bottleneck) 블록이 있는 심층 ImageNet 모델은 내부 3x3 컨볼루션의 채널 수를 증가 시켰습니다.
 
 `wide_resnet50_2` 및 `wide_resnet101_2` 모델은 [Warm Restarts가 있는 SGD(SGDR)](https://arxiv.org/abs/1608.03983)를 사용하여 혼합 정밀도(Mixed Precision) 방식으로 FP16에서 학습되었습니다.
