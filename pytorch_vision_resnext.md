@@ -24,9 +24,9 @@ model = torch.hub.load('pytorch/vision:v0.9.0', 'resnext50_32x4d', pretrained=Tr
 model.eval()
 ```
 
-사전 훈련된 모든 모델들은 입력 이미지들이 같은 방식으로 정규화된것으로 생각합니다. 
+사전 훈련된 모든 모델들은 입력 이미지들이 같은 방식으로 정규화 된 것으로 생각합니다. 
 즉, `(3 x H x W)` 모양의 3채널 RGB 이미지를 말하고 `H` 와 `W`은 각각 최소 `224` 이상을 기대합니다.
-이미지는 `[0, 1]` 범위로 로드한 다음 `mean = [0.485, 0.456, 0.406]` 과 `std = [0.229, 0.224, 0.225]`
+이미지는 `[0, 1]` 범위로 불러온 다음 `mean = [0.485, 0.456, 0.406]` 과 `std = [0.229, 0.224, 0.225]`
 를 사용하여 정규화를 진행합니다.
 
 Here's a sample execution.
@@ -85,7 +85,7 @@ for i in range(top5_prob.size(0)):
     print(categories[top5_catid[i]], top5_prob[i].item())
 ```
 
-### Model Description
+### 모델 개요
 
 Resnext는 [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/abs/1611.05431)에서 제안된 모델입니다.
 2가지 버전의 resnet 모델들이 있는데, 각각 50, 101개의 레이어로 구성되어있습니다.
@@ -97,6 +97,6 @@ imagenet 데이터셋으로 학습한 사전 훈련 모델들의 Top-1 error 비
 |  resnext50_32x4d  | 22.38       | 6.30        |
 |  resnext101_32x8d | 20.69       | 5.47        |
 
-### References
+### 참조
 
  - [Aggregated Residual Transformations for Deep Neural Networks](https://arxiv.org/abs/1611.05431)
