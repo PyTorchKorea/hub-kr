@@ -1,4 +1,4 @@
-﻿---
+---
 layout: hub_detail
 background-class: hub-background
 body-class: hub
@@ -20,14 +20,14 @@ demo-model-link: https://huggingface.co/spaces/pytorch/Tacotron2
 
 ### 모델 설명
 
-Tacotron 2 및 WaveGlow 모델은 추가 운율 정보 없이 원본 텍스트에서 자연스러운 음성을 합성할 수 있는 텍스트 음성 변환 시스템을 형성합니다. Tacotron 2 모델은 인코더-디코더 아키텍처를 사용하여 입력 텍스트에서 멜 스펙트로그램을 생성합니다. WaveGlow (torch.hub를 통해서도 사용 가능)는 멜 스펙트로그램을 사용하여 음성을 생성하는 흐름 기반(flow-based) 모델입니다.
+Tacotron 2 및 WaveGlow 모델은 추가 운율 정보 없이 원본 텍스트에서 자연스러운 음성을 합성할 수 있는 텍스트 음성 변환 시스템을 만듭니다. Tacotron 2 모델은 인코더-디코더 아키텍처를 사용하여 입력 텍스트에서 멜 스펙트로그램(mel spectrogram)을 생성합니다. WaveGlow (torch.hub를 통해서도 사용 가능)는 멜 스펙트로그램을 사용하여 음성을 생성하는 흐름 기반(flow-based) 모델입니다.
 
 사전 훈련된 Tacotron 2 모델은 논문과 다르게 구현되었습니다. 여기서 제공하는 모델에서는 LSTM 레이어를 정규화하기 위해 Zoneout 대신 Dropout을 사용합니다.
 
 ### 예시 사례
 
 아래 예제에서는:
-- 사전 훈련된 Tacotron2 및 Waveglow 모델은 torch.hub에서 로드됩니다.
+- 사전 훈련된 Tacotron2 및 Waveglow 모델은 torch.hub에서 가져옵니다.
 - Tacotron2는 ("Hello world, I miss you so much")와 같은 입력 텍스트의 텐서 표현이 주어지면 그림과 같은 멜 스펙트로그램을 생성합니다. 
 - Waveglow는 멜 스펙트로그램에서 사운드를 생성합니다.
 - 출력 사운드는 'audio.wav' 파일에 저장됩니다.
