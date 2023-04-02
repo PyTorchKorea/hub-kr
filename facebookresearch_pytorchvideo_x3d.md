@@ -178,7 +178,7 @@ print("Top 5 predicted labels: %s" % ", ".join(pred_class_names))
 ```
 
 ### 모델 설명
-X3D 모델 아키텍처는 Kinetics 데이터셋에 대해 사전 훈련된 [1]을 기반으로 한다.
+X3D 모델 아키텍처는 Kinetics 데이터셋에 대해 사전 훈련된 [1]을 기반으로 합니다.
 
 | arch | depth | frame length x sample rate | top 1 | top 5 | Flops (G) | Params (M) |
 | --------------- | ----------- | ----------- | ----------- | ----------- | ----------- |  ----------- | ----------- |
