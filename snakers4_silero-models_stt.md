@@ -34,7 +34,7 @@ model, decoder, utils = torch.hub.load(repo_or_dir='snakers4/silero-models',
                                        language='en', # 'de', 'es'도 사용 가능
                                        device=device)
 (read_batch, split_into_batches,
- read_audio, prepare_model_input) = utils  # 자세한 내용은 함수 서명을 참조하세요.
+ read_audio, prepare_model_input) = utils  # 자세한 내용은 함수 시그니처(function signature)를 참조하세요.
 
 # TorchAudio와 호환되는 형식(사운드 파일 백엔드)중 하나의 파일 다운로드
 torch.hub.download_url_to_file('https://opus-codec.org/static/examples/samples/speech_orig.wav',
@@ -66,7 +66,7 @@ To see the always up-to-date language list, please visit our [repo](https://gith
 
 ### 추가 예제 및 벤치마크
 
-추가 예제 및 기타 모델 형식을 보려면 이 [link](https://github.com/snakers4/silero-models)를 방문하십시오. 품질 및 성능 벤치마크는 [wiki](https://github.com/snakers4/silero-models/wiki)를 참조하십시오. 이러한 리소스는 수시로 업데이트됩니다.
+추가 예제 및 기타 모델 형식을 보려면 이 [link](https://github.com/snakers4/silero-models)를 방문하십시오. 품질 및 성능 벤치마크는 [wiki](https://github.com/snakers4/silero-models/wiki)를 참조하십시오. 관련 자료는 수시로 업데이트됩니다.
 
 ### 참고문헌
 
