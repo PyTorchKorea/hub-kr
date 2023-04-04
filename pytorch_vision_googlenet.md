@@ -23,15 +23,13 @@ model = torch.hub.load('pytorch/vision:v0.10.0', 'googlenet', pretrained=True)
 model.eval()
 ```
 
-All pre-trained models expect input images normalized in the same way,
-i.e. mini-batches of 3-channel RGB images of shape `(3 x H x W)`, where `H` and `W` are expected to be at least `224`.
-The images have to be loaded in to a range of `[0, 1]` and then normalized using `mean = [0.485, 0.456, 0.406]`
-and `std = [0.229, 0.224, 0.225]`.
-
-Here's a sample execution.
+사전 훈련된 모델들을 사용할 때는 동일한 방식으로 정규화된 이미지를 입력으로 넣어야 합니다.
+즉, 미니 배치(mini-batch)의 3-채널 RGB 이미지들은 `(3 x H x W)`의 형태를 가지며, 해당 `H`와 `W`는 최소 `224` 이상이어야 합니다.
+각 이미지는 `[0, 1]`의 범위 내에서 불러와야 하며, `mean = [0.485, 0.456, 0.406]` 과 `std = [0.229, 0.224, 0.225]`을 이용해 정규화되어야 합니다.
+다음은 실행 예제 입니다.
 
 ```python
-# Download an example image from the pytorch website
+# 파이토치 웹 사이트에서 이미지 다운로드
 import urllib
 url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
 try: urllib.URLopener().retrieve(url, filename)
@@ -39,7 +37,7 @@ except: urllib.request.urlretrieve(url, filename)
 ```
 
 ```python
-# sample execution (requires torchvision)
+# 예시 코드 (torchvision 필요)
 from PIL import Image
 from torchvision import transforms
 input_image = Image.open(filename)
@@ -50,48 +48,48 @@ preprocess = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
 input_tensor = preprocess(input_image)
-input_batch = input_tensor.unsqueeze(0) # create a mini-batch as expected by the model
+input_batch = input_tensor.unsqueeze(0) # 모델에서 가정하는대로 미니배치 생성
 
-# move the input and model to GPU for speed if available
+# gpu를 사용할 수 있다면, 속도를 위해 입력과 모델을 gpu로 옮김
 if torch.cuda.is_available():
     input_batch = input_batch.to('cuda')
     model.to('cuda')
 
 with torch.no_grad():
     output = model(input_batch)
-# Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
+# output은 shape가 [1000]인 Tensor 자료형이며, 이는 ImageNet 데이터셋의 1000개의 각 클래스에 대한 모델의 확신도(confidence)를 나타냄
 print(output[0])
-# The output has unnormalized scores. To get probabilities, you can run a softmax on it.
+# output은 정규화되지 않았으므로, 확률화하기 위해 softmax 함수를 처리
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
 print(probabilities)
 ```
 
 ```
-# Download ImageNet labels
+# ImageNet 데이터셋 레이블 다운로드
 !wget https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt
 ```
 
 ```
-# Read the categories
+# 카테고리(클래스) 읽기
 with open("imagenet_classes.txt", "r") as f:
     categories = [s.strip() for s in f.readlines()]
-# Show top categories per image
+# 각 이미지에 대한 top 5 카테고리 출력
 top5_prob, top5_catid = torch.topk(probabilities, 5)
 for i in range(top5_prob.size(0)):
     print(categories[top5_catid[i]], top5_prob[i].item())
 ```
 
 
-### Model Description
+### 모델 설명
 
-GoogLeNet was based on a deep convolutional neural network architecture codenamed "Inception", which was responsible for setting the new state of the art for classification and detection in the ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC 2014). The 1-crop error rates on the ImageNet dataset with a pretrained model are list below.
+GoogLeNet은 코드네임 "Inception"으로 불리는 신경망 아키텍처에 기반한 깊은 합성곱 신경망입니다. 이 모델은 ImageNet Large-Scale Visual Recognition Challenge 2014 (ILSVRC 2014) 에서 새로운 SOTA(state of the art)를 달성했습니다. 사전 훈련된 모델로 ImageNet 데이터셋에서의 단일-크롭 방식으로 오류 비율을 측정한 결과는 아래와 같습니다.
 
-| Model structure | Top-1 error | Top-5 error |
+| 모델 구조 | Top-1 오류 | Top-5 오류 |
 | --------------- | ----------- | ----------- |
 |  googlenet       | 30.22       | 10.47       |
 
 
 
-### References
+### 참고문헌
 
  - [Going Deeper with Convolutions](https://arxiv.org/abs/1409.4842)

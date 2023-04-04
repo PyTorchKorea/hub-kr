@@ -23,15 +23,14 @@ model = torch.hub.load('pytorch/vision:v0.10.0', 'shufflenet_v2_x1_0', pretraine
 model.eval()
 ```
 
-All pre-trained models expect input images normalized in the same way,
-i.e. mini-batches of 3-channel RGB images of shape `(3 x H x W)`, where `H` and `W` are expected to be at least `224`.
-The images have to be loaded in to a range of `[0, 1]` and then normalized using `mean = [0.485, 0.456, 0.406]`
-and `std = [0.229, 0.224, 0.225]`.
+모든 사전 훈련된 모델은 동일한 방식으로 정규화된 입력 이미지를 요구합니다.
+즉, `H`와 `W`가 최소 `224`의 크기를 가지는 `(3 x H x W)`형태의 3채널 RGB 이미지의 미니배치가 필요합니다. 
+이미지를 [0, 1] 범위로 불러온 다음 `mean = [0.485, 0.456, 0.406]`, `std = [0.229, 0.224, 0.225]`를 이용하여 정규화해야 합니다.
 
-Here's a sample execution.
+다음은 실행예시입니다.
 
 ```python
-# Download an example image from the pytorch website
+# 파이토치 웹 사이트에서 예제 이미지 다운로드
 import urllib
 url, filename = ("https://github.com/pytorch/hub/raw/master/images/dog.jpg", "dog.jpg")
 try: urllib.URLopener().retrieve(url, filename)
@@ -39,7 +38,7 @@ except: urllib.request.urlretrieve(url, filename)
 ```
 
 ```python
-# sample execution (requires torchvision)
+# 실행예시 (torchvision이 요구됩니다.)
 from PIL import Image
 from torchvision import transforms
 input_image = Image.open(filename)
@@ -50,46 +49,46 @@ preprocess = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
 input_tensor = preprocess(input_image)
-input_batch = input_tensor.unsqueeze(0) # create a mini-batch as expected by the model
+input_batch = input_tensor.unsqueeze(0) # 모델에서 요구하는 미니배치 생성
 
-# move the input and model to GPU for speed if available
+# GPU 사용이 가능한 경우 속도를 위해 입력과 모델을 GPU로 이동
 if torch.cuda.is_available():
     input_batch = input_batch.to('cuda')
     model.to('cuda')
 
 with torch.no_grad():
     output = model(input_batch)
-# Tensor of shape 1000, with confidence scores over Imagenet's 1000 classes
+# Imagnet의 1000개 클래스에 대한 신뢰도 점수를 가진 1000 형태의 텐서 출력
 print(output[0])
-# The output has unnormalized scores. To get probabilities, you can run a softmax on it.
+# 출력은 정규화되어있지 않습니다. 소프트맥스를 실행하여 확률을 얻을 수 있습니다.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
 print(probabilities)
 ```
 
 ```
-# Download ImageNet labels
+# ImageNet 레이블 다운로드
 !wget https://raw.githubusercontent.com/pytorch/hub/master/imagenet_classes.txt
 ```
 
 ```
-# Read the categories
+# 카테고리 읽어오기
 with open("imagenet_classes.txt", "r") as f:
     categories = [s.strip() for s in f.readlines()]
-# Show top categories per image
+# 이미지마다 상위 카테고리 5개 보여주기
 top5_prob, top5_catid = torch.topk(probabilities, 5)
 for i in range(top5_prob.size(0)):
     print(categories[top5_catid[i]], top5_prob[i].item())
 ```
 
-### Model Description
+### 모델 설명
 
-Previously, neural network architecture design was mostly guided by the indirect metric of computation complexity, i.e., FLOPs. However, the direct metric, e.g., speed, also depends on the other factors such as memory access cost and platform characteristics. Based on a series of controlled experiments, this work derives several practical guidelines for efficient network design. Accordingly, a new architecture is presented, called ShuffleNet V2. Comprehensive ablation experiments verify that our model is the state of-the-art in terms of speed and accuracy tradeoff.
+이전에는 신경망 아키텍처 설계는 주로 FLOP와 같은 계산 복잡성의 간접 측정 기준에 따라 진행되었습니다. 그러나 속도와 같은 직접적인 측정은 메모리 액세스 비용 및 플랫폼 특성과 같은 다른 요소에도 의존합니다. 일련의 통제된 실험을 기반으로, 이 작업은 효율적인 네트워크 설계를 위한 몇 가지 실용적인 지침을 도출합니다. 따라서 ShuffleNet V2라는 새로운 아키텍처가 제시됩니다. 조건 변화에 따른 모델 평가를 통해 속도와 정확도 트레이드오프 측면에서 최고 수준임을 확인했습니다.
 
 | Model structure | Top-1 error | Top-5 error |
 | --------------- | ----------- | ----------- |
 |  shufflenet_v2       | 30.64       | 11.68       |
 
 
-### References
+### 참고문헌
 
  - [ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design](https://arxiv.org/abs/1807.11164)
