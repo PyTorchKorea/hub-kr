@@ -85,7 +85,7 @@ for i in range(top5_prob.size(0)):
 
 ### 모델 설명
 
-Resnext 모델은 논문 [Aggregated Residual Transformations for Deep Neural Networks]에서 제안되었습니다. (https://arxiv.org/abs/1611.05431).
+Resnext 모델은 논문 ["Aggregated Residual Transformations for Deep Neural Networks"](https://arxiv.org/abs/1611.05431) 에서 제안되었습니다.
 여기서는 50개의 계층과 101개의 계층을 가지는 2개의 resnet 모델을 제공하고 있습니다.
 resnet50과 resnext50의 아키텍처 차이는 논문의 Table 1을 참고하십시오.
 ImageNet 데이터셋에 대한 사전훈련된 모델의 에러(성능)은 아래 표와 같습니다.
