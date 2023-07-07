@@ -90,7 +90,7 @@ for i in range(top5_prob.size(0)):
 
 ### 모델 설명
 
-각 구성 및 BatchNorm 버전에 대해서 [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556)에서 제안한 모델에 대한 구현이 있습니다.
+각 구성 및 batchnorm 버전에 대해서 [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556)에서 제안한 모델에 대한 구현이 있습니다.
 
 예를 들어, 논문에 제시된 구성 `A`는 `vgg11`, `B`는 `vgg13`, `D`는 `vgg16`, `E`는 `vgg19`입니다.
 batchnorm 버전은 `_bn`이 접미사로 붙어있습니다.
