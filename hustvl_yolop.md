@@ -125,8 +125,6 @@ det_out, da_seg_out,ll_seg_out = model(img)
 
 ### 인용(Citation)
 
-See for more detail in [github code](https://github.com/hustvl/YOLOP) and [arxiv paper](https://arxiv.org/abs/2108.11250).
-
 본 [논문](https://arxiv.org/abs/2108.11250) 과 [코드](https://github.com/hustvl/YOLOP) 가 여러분의 연구에 유용하다고 판단되면, GitHub star를 주는 것과 본 논문을 인용하는 것을 고려해 주세요:
 
 ```BibTeX
