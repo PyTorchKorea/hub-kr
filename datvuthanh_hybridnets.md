@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: HybridNets
-summary: HybridNets - End2End Perception Network
+summary: HybridNets - 종단간 인식 네트워크
 image: hybridnets.jpg
 author: Dat Vu Thanh
 tags: [vision]
@@ -15,22 +15,22 @@ featured_image_2: no-image
 accelerator: cuda-optional
 demo-model-link: https://colab.research.google.com/drive/1Uc1ZPoPeh-lAhPQ1CloiVUsOIRAVOGWA
 ---
-## Before You Start
+## 시작하기 전에
 
-Start from a **Python>=3.7** environment with **PyTorch>=1.10** installed. To install PyTorch see [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/). To install HybridNets dependencies:
+**PyTorch>=1.10**이 설치된 **Python>=3.7** 환경 에서 시작합니다. PyTorch를 설치하려면 [https://pytorch.org/get-started/locally/](https://pytorch.org/get-started/locally/) 를 참고하세요. HybridNets 종속 패키지를 설치하려면 아래 명령을 수행해주세요:
 ```bash
 pip install -qr https://raw.githubusercontent.com/datvuthanh/HybridNets/main/requirements.txt  # install dependencies
 ```
 
-## Model Description
+## 모델 설명
  
 <img width="100%" src="https://github.com/datvuthanh/HybridNets/raw/main/images/hybridnets.jpg">  
 
-HybridNets is an end2end perception network for multi-tasks. Our work focused on traffic object detection, drivable area segmentation and lane detection.  HybridNets can run real-time on embedded systems, and obtains SOTA Object Detection, Lane Detection on BDD100K Dataset.
+HybridNets는 다중 작업을 위한 종단간 인식 네트워크입니다. 이 다중 네크워크는 교통 물체 감지, 주행 가능 영역 분할 및 차선 감지에 중점을 두었습니다. HybridNets는 임베디드 시스템에서 실시간으로 실행할 수 있으며 BDD100K 데이터셋에서 최신 기술(state-of-the-art)의 수준의 물체 감지, 차선 감지 성능을 보여줍니다.
 
-### Results
+### 결과
 
-### Traffic Object Detection
+### 교통 물체 감지
 
 |        Model       |  Recall (%)  |   mAP@0.5 (%)   |
 |:------------------:|:------------:|:---------------:|
@@ -43,7 +43,7 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
 
 <img src="https://github.com/datvuthanh/HybridNets/raw/main/images/det1.jpg" width="50%" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/det2.jpg" width="50%" />
  
-### Drivable Area Segmentation
+### 운전 가능 영역 분할
 
 |       Model      | Drivable mIoU (%) |
 |:----------------:|:-----------------:|
@@ -55,7 +55,7 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
 
 <img src="https://github.com/datvuthanh/HybridNets/raw/main/images/road1.jpg" width="50%" /><img src="https://github.com/datvuthanh/HybridNets/raw/main/images/road2.jpg" width="50%" />
  
-### Lane Line Detection
+### 차선 감지
 
 |      Model       | Accuracy (%) | Lane Line IoU (%) |
 |:----------------:|:------------:|:-----------------:|
@@ -70,9 +70,9 @@ HybridNets is an end2end perception network for multi-tasks. Our work focused on
 <img width="100%" src="https://github.com/datvuthanh/HybridNets/raw/main/images/full_video.gif">
  
  
-### Load From PyTorch Hub
+### PyTorch Hub에서 불러오기
 
-This example loads the pretrained **HybridNets** model and passes an image for inference.
+이 예제는 사전 훈련된 HybridNets 모델을 불러오고 추론을 위해 이미지를 전달합니다.
 ```python
 import torch
 
@@ -84,9 +84,9 @@ img = torch.randn(1,3,640,384)
 features, regression, classification, anchors, segmentation = model(img)
 ```
 
-### Citation
+### 인용
 
-If you find our [paper](https://arxiv.org/abs/2203.09035) and [code](https://github.com/datvuthanh/HybridNets) useful for your research, please consider giving a star and citation:
+본 [논문](https://arxiv.org/abs/2203.09035) 과 [코드](https://github.com/datvuthanh/HybridNets) 가 여러분의 연구에 유용하다고 판단되면, GitHub star를 주는 것과 본 논문을 인용하는 것을 고려해 주세요:
 
 ```BibTeX
 @misc{vu2022hybridnets,
