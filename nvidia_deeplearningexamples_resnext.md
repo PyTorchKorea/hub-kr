@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: ResNeXt101
-summary: ResNet with bottleneck 3x3 Convolutions substituted by 3x3 Grouped Convolutions, trained with mixed precision using Tensor Cores.
+summary: ResNet의 3x3 그룹 합성곱(Grouped Convolution) 계층을 병목 블록(Bottleneck Block) 내부의 3x3 합성곱 계층으로 대체한 모델.
 category: researchers
 image: nvidia_logo.png
 author: NVIDIA

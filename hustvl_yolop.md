@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: YOLOP
-summary: YOLOP pretrained on the BDD100K dataset
+summary: BDD100K 데이터 세트에서 사전 훈련된 YOLOP
 image: yolop.png
 author: Hust Visual Learning Team
 tags: [vision]

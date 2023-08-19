@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: ntsnet
-summary: classify birds using this fine-grained image classifier
+summary: fine-grained 이미지 분류기를 사용한 새 분류
 image: Cub200Dataset.png
 author: Moreno Caraffini and Nicola Landro
 tags: [vision]

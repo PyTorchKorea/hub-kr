@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: X3D
-summary: X3D networks pretrained on the Kinetics 400 dataset
+summary: Kinetics 400 데이터섯에서 사전 학습된 X3D 네트워크
 image: x3d.png
 author: FAIR PyTorchVideo
 tags: [vision]

@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: 3D ResNet
-summary: Resnet Style Video classification networks pretrained on the Kinetics 400 dataset 
+summary: Kinetics 400 데이터셋에서 사전 학습된 Resnet 스타일 비디오 분류 네트워크
 image: slowfast.png 
 author: FAIR PyTorchVideo
 tags: [vision]
