@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: Deeplabv3
-summary: DeepLabV3 models with ResNet-50, ResNet-101 and MobileNet-V3 backbones
+summary: ResNet-50, ResNet-101 또는 MobileNet-V3 백본이 포함된 DeepLab V3 모델
 category: researchers
 image: deeplab2.png
 author: Pytorch Team
