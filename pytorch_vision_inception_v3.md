@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: Inception_v3
-summary: Also called GoogleNetv3, a famous ConvNet trained on Imagenet from 2015
+summary: GoogleNetv3이라고도 불리는, 2015년 ImageNet으로 훈련된 유명한 ConvNet
 category: researchers
 image: inception_v3.png
 author: Pytorch Team

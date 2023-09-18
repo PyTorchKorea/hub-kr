@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: IBN-Net
-summary: Networks with domain/appearance invariance
+summary: 도메인/외관 불변성을 갖는 네트워크
 category: researchers
 image: ibnnet.png
 author: Xingang Pan
