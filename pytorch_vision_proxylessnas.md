@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: ProxylessNAS
-summary: Proxylessly specialize CNN architectures for different hardware platforms.
+summary: 다양한 하드웨어 플랫폼을 위해 프록시 없이 전문화시킨 CNN 아키텍처
 category: researchers
 image: proxylessnas.png
 author: MIT Han Lab

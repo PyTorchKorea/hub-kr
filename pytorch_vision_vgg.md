@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: vgg-nets
-summary: Award winning ConvNets from 2014 Imagenet ILSVRC challenge
+summary: 2014 Imagenet ILSVRC 챌린지에서 ConvNets부분 수상
 category: researchers
 image: vgg.png
 author: Pytorch Team
@@ -90,12 +90,12 @@ for i in range(top5_prob.size(0)):
 
 ### 모델 설명
 
-각 구성 및 bachnorm 버전에 대해서 [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556)에서 제안한 모델에 대한 구현이 있습니다.
+각 구성 및 batchnorm 버전에 대해서 [Very Deep Convolutional Networks for Large-Scale Image Recognition](https://arxiv.org/abs/1409.1556)에서 제안한 모델에 대한 구현이 있습니다.
 
 예를 들어, 논문에 제시된 구성 `A`는 `vgg11`, `B`는 `vgg13`, `D`는 `vgg16`, `E`는 `vgg19`입니다.
 batchnorm 버전은 `_bn`이 접미사로 붙어있습니다.
 
-사전 훈련된 모델이 있는 imagenet 데이터 세트의 1-crop 오류율은 아래에 나열되어 있습니다.
+사전 훈련된 모델이 있는 ImageNet 데이터 세트의 Top-1 오류율은 아래에 나열되어 있습니다.
 
 | Model structure | Top-1 error | Top-5 error |
 | --------------- | ----------- | ----------- |

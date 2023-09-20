@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: EfficientNet
-summary: EfficientNets are a family of image classification models, which achieve state-of-the-art accuracy, being an order-of-magnitude smaller and faster. Trained with mixed precision using Tensor Cores.
+summary: EfficientNets는 최첨단 정확도를 달성하는 이미지 분류 모델 계열로 크기가 작고 빠릅니다. 텐서 코어를 사용하여 혼합 정밀도로 훈련되었습니다.
 category: researchers
 image: nvidia_logo.png
 author: NVIDIA

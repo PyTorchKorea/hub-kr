@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: Densenet
-summary: Dense Convolutional Network (DenseNet), connects each layer to every other layer in a feed-forward fashion.
+summary: DenseNet(Dense Convolutional Network)은 피드포워드 방식으로 각 계층을 다른 모든 계층에 연결합니다.
 category: researchers
 image: densenet1.png
 author: Pytorch Team

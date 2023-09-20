@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: AlexNet
-summary: The 2012 ImageNet winner achieved a top-5 error of 15.3%, more than 10.8 percentage points lower than that of the runner up.
+summary: 2012년 ImageNet 우승자는 15.3%의  top-5 에러율을 달성하여 준우승자보다 10.8%P 이상 낮았습니다.
 category: researchers
 image: alexnet2.png
 author: Pytorch Team

@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: U-Net for brain MRI
-summary: U-Net with batch normalization for biomedical image segmentation with pretrained weights for abnormality segmentation in brain MRI
+summary: 뇌 MRI 이상 분할을 위해 사전 훈련된 가중치를 사용한 의료 이미지 분할을 위한 배치 정규화를 사용하는 U-Net
 image: unet_tcga_cs_4944.png
 author: mateuszbuda
 tags: [vision]

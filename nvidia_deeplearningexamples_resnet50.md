@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: ResNet50
-summary: ResNet50 model trained with mixed precision using Tensor Cores.
+summary: 텐서 코어를 사용하여 혼합 정밀도로 훈련된 ResNet50 모델.
 category: researchers
 image: nvidia_logo.png
 author: NVIDIA

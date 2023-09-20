@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: GhostNet
-summary: Efficient networks by generating more features from cheap operations
+summary: 적은 연산에서 더 많은 특징을 생성하여 효율적인 네트워크
 category: researchers
 image: ghostnet.png
 author: Huawei Noah's Ark Lab

@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: Progressive Growing of GANs (PGAN)
-summary: High-quality image generation of fashion, celebrity faces
+summary: 패션, 연예인 얼굴의 고품질 이미지 생성
 category: researchers
 image: pganlogo.png
 author: FAIR HDGAN

@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: SqueezeNet
-summary: Alexnet-level accuracy with 50x fewer parameters.
+summary: 50배 적은 파라미터로 Alexnet 수준의 정확도 제공
 category: researchers
 image: squeezenet.png
 author: Pytorch Team

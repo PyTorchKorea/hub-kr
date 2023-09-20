@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: ResNext WSL
-summary: ResNext models trained with billion scale weakly-supervised data.
+summary: 10억 규모의 약한 지도(weakly-supervised) 데이터셋을 사용한 ResNext 모델.
 category: researchers
 image: wsl-image.png
 author: Facebook AI

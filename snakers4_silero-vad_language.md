@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: Silero Language Classifier
-summary: Pre-trained Spoken Language Classifier
+summary: 사전 훈련된 음성 언어 분류기
 image: silero_logo.jpg
 author: Silero AI Team
 tags: [audio, scriptable]
