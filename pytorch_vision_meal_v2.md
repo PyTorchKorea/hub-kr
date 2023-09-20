@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: MEAL_V2
-summary: Boosting Tiny and Efficient Models using Knowledge Distillation.
+summary: Knowledge Distillation을 사용한 작고 효율적인 모델
 category: researchers
 image: MEALV2.png
 author: Carnegie Mellon University

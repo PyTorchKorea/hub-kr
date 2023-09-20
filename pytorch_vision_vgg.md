@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: vgg-nets
-summary: Award winning ConvNets from 2014 Imagenet ILSVRC challenge
+summary: 2014 Imagenet ILSVRC 챌린지에서 ConvNets부분 수상
 category: researchers
 image: vgg.png
 author: Pytorch Team

@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: ResNext
-summary: Next generation ResNets, more efficient and accurate
+summary: 보다 효율적이고 정확한 차세대 ResNets
 category: researchers
 image: resnext.png
 author: Pytorch Team
