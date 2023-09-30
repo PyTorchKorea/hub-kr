@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: ResNeSt
-summary: A new ResNet variant.
+summary: 새로운 ResNet 변형 모델
 category: researchers
 image: resnest.jpg
 author: Hang Zhang

@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: Silero Speech-To-Text Models
-summary: A set of compact enterprise-grade pre-trained STT Models for multiple languages.
+summary: 여러 언어에 대해 사전 훈련된 소형 엔터프라이즈급 STT 모델 세트
 image: silero_logo.jpg
 author: Silero AI Team
 tags: [audio, scriptable]

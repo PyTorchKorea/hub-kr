@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: SSD
-summary: Single Shot MultiBox Detector model for object detection
+summary: 객체 탐지를 위한 Single Shot MultiBox Detector 모델
 category: researchers
 image: nvidia_logo.png
 author: NVIDIA
@@ -30,8 +30,7 @@ SSD300 모델은 "단일 심층 신경망을 사용하여 이미지에서 물체
 *   conv4_x의 모든 strides는 1x1로 설정됩니다.
 
 백본 뒤에는 5개의 합성곱 레이어가 추가됩니다. 또한 합성곱 레이어 외에도 6개의 detection heads를 추가했습니다.
-The backbone is followed by 5 additional convolutional layers.
-In addition to the convolutional layers, we attached 6 detection heads:
+
 *   첫 번째 detection head는 마지막 conv4_x 레이어에 연결됩니다.
 *   나머지 5개의 detection head는 추가되는 5개의 합성곱 레이어에 부착됩니다.
 

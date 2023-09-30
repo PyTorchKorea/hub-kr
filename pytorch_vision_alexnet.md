@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: AlexNet
-summary: The 2012 ImageNet winner achieved a top-5 error of 15.3%, more than 10.8 percentage points lower than that of the runner up.
+summary: 2012년 ImageNet 우승자는 15.3%의  top-5 에러율을 달성하여 준우승자보다 10.8%P 이상 낮았습니다.
 category: researchers
 image: alexnet2.png
 author: Pytorch Team
@@ -58,7 +58,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# Imagenet 1000개 클래스의 신뢰 점수를 나타내는 텐서
+# ImageNet 1000개 클래스의 신뢰 점수를 나타내는 텐서
 
 print(output[0])
 
@@ -90,7 +90,7 @@ AlexNet은 2012년도 ImageNet Large Scale Visual Recognition Challenge (ILSVRC)
 
 | 모델 구조 | Top-1 에러 | Top-5 에러 |
 | --------------- | ----------- | ----------- |
-|  alexnet        | 43.45       | 20.91       | -->
+|  AlexNet        | 43.45       | 20.91       | -->
 
 ### 참고문헌
 

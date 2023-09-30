@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: PyTorch-Transformers
-summary:  PyTorch implementations of popular NLP Transformers
+summary: 널리 사용되는 NLP Transformers의 PyTorch 구현
 category: researchers
 image: huggingface-logo.png
 author: HuggingFace Team

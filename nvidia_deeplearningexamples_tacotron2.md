@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: Tacotron 2
-summary: The Tacotron 2 model for generating mel spectrograms from text
+summary: 텍스트에서 멜 스펙트로그램(mel spectrogram)을 생성하는 Tacotron 2 모델
 category: researchers
 image: nvidia_logo.png
 author: NVIDIA

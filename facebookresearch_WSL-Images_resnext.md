@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: ResNext WSL
-summary: ResNext models trained with billion scale weakly-supervised data.
+summary: 10억 규모의 약한 지도(weakly-supervised) 데이터셋을 사용한 ResNext 모델.
 category: researchers
 image: wsl-image.png
 author: Facebook AI
@@ -64,7 +64,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# Imagenet의 1000개 클래스에 대한 신뢰도 점수를 가진, shape이 1000인 텐서 출력
+# ImageNet의 1000개 클래스에 대한 신뢰도 점수를 가진, shape이 1000인 텐서 출력
 print(output[0])
 # 출력값은 정규화되지 않은 형태입니다. Softmax를 실행하면 확률을 얻을 수 있습니다.
 print(torch.nn.functional.softmax(output[0], dim=0))

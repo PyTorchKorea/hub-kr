@@ -58,7 +58,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# output은 1000개의 Tensor 형태이며, 이는 Imagenet 데이터 셋의 1000개 클래스에 대한 신뢰도 점수를 나타내는 결과
+# output은 1000개의 Tensor 형태이며, 이는 ImageNet 데이터 셋의 1000개 클래스에 대한 신뢰도 점수를 나타내는 결과
 print(output[0])
 # output 결과는 정규화되지 않은 결과. 확률을 얻기 위해선 softmax를 거쳐야 함.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)

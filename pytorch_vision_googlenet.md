@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: GoogLeNet
-summary: GoogLeNet was based on a deep convolutional neural network architecture codenamed "Inception" which won ImageNet 2014.
+summary: GoogLeNet은 "Inception"이라는 심층 컨볼루션 신경망 아키텍처를 기반으로 하여 ImageNet 2014에서 수상했습니다.
 category: researchers
 image: googlenet1.png
 author: Pytorch Team

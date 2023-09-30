@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: ShuffleNet v2
-summary: An efficient ConvNet optimized for speed and memory, pre-trained on Imagenet
+summary: ImageNet에서 사전 훈련된 속도와 메모리에 최적화된 효율적인 ConvNet
 category: researchers
 image: shufflenet_v2_1.png
 author: Pytorch Team

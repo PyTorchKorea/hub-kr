@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: ResNeXt101
-summary: ResNet with bottleneck 3x3 Convolutions substituted by 3x3 Grouped Convolutions, trained with mixed precision using Tensor Cores.
+summary: ResNet의 3x3 그룹 합성곱(Grouped Convolution) 계층을 병목 블록(Bottleneck Block) 내부의 3x3 합성곱 계층으로 대체한 모델.
 category: researchers
 image: nvidia_logo.png
 author: NVIDIA
@@ -64,7 +64,7 @@ device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cp
 print(f'Using {device} for inference')
 ```
 
-IMAGENET 데이터셋으로 사전 학습된 모델을 불러옵니다.
+ImageNet 데이터셋으로 사전 학습된 모델을 불러옵니다.
 ```python
 resneXt = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_resneXt')
 utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_convnets_processing_utils')

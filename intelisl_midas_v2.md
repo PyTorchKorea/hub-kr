@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: MiDaS
-summary: MiDaS models for computing relative depth from a single image.
+summary: 단일 이미지에서 상대적인 깊이를 계산하기 위한 MiDaaS 모델.
 image: intel-logo.png
 author: Intel ISL
 tags: [vision]

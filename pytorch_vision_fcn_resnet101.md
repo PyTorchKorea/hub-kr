@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: FCN
-summary: Fully-Convolutional Network model with ResNet-50 and ResNet-101 backbones
+summary: ResNet-50 및 ResNet-101 백본을 사용하는 완전 컨볼루션 네트워크 모델
 category: researchers
 image: fcn2.png
 author: Pytorch Team

@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: Inception_v3
-summary: Also called GoogleNetv3, a famous ConvNet trained on Imagenet from 2015
+summary: GoogleNetv3이라고도 불리는, 2015년 ImageNet으로 훈련된 유명한 ConvNet
 category: researchers
 image: inception_v3.png
 author: Pytorch Team
@@ -57,7 +57,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# output은 shape가 [1000]인 Tensor 자료형이며, 이는 Imagenet 데이터셋의 1000개의 각 클래스에 대한 모델의 확신도(confidence)를 나타냄
+# output은 shape가 [1000]인 Tensor 자료형이며, 이는 ImageNet 데이터셋의 1000개의 각 클래스에 대한 모델의 확신도(confidence)를 나타냄
 print(output[0])
 # output은 정규화되지 않았으므로, 확률화하기 위해 softmax 함수를 처리
 probabilities = torch.nn.functional.softmax(output[0], dim=0)

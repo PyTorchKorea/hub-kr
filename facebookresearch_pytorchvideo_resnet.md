@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: 3D ResNet
-summary: Resnet Style Video classification networks pretrained on the Kinetics 400 dataset 
+summary: Kinetics 400 데이터셋에서 사전 학습된 Resnet 스타일 비디오 분류 네트워크
 image: slowfast.png 
 author: FAIR PyTorchVideo
 tags: [vision]
@@ -18,7 +18,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/3D_ResNet
 
 ### 사용 예시
 
-#### Imports
+#### 불러오기
 
 모델 불러오기: 
 
@@ -47,7 +47,7 @@ from pytorchvideo.transforms import (
 )
 ```
 
-#### 환경설정
+#### 셋업
 
 모델을 평가 모드로 설정하고 원하는 디바이스 방식을 선택합니다.
 
@@ -58,7 +58,7 @@ model = model.eval()
 model = model.to(device)
 ```
 
-토치 허브 모델이 훈련된 Kinetics 400 데이터셋에 대해 ID에서의 레이블과 맞는 정보를 다운로드합니다. 이는 예측된 클래스 ID에서 카테고리 레이블 이름을 가져오는데 사용됩니다.
+토치 허브 모델이 훈련된 Kinetics 400 데이터셋에 대해 ID에서의 레이블 매핑 정보를 다운로드합니다. 이는 예측된 클래스 ID에서 카테고리 레이블 이름을 가져오는데 사용됩니다.
 
 ```python
 json_url = "https://dl.fbaipublicfiles.com/pyslowfast/dataset/class_names/kinetics_classnames.json"
@@ -159,6 +159,7 @@ print("Top 5 predicted labels: %s" % ", ".join(pred_class_names))
 
 ### 모델 설명
 모델 아키텍처는 Kinetics 데이터셋의 8x8 설정을 사용하여 사전 훈련된 가중치가 있는 참고문헌 [1]을 기반으로 합니다.
+
 | arch | depth | frame length x sample rate | top 1 | top 5 | Flops (G) | Params (M) |
 | --------------- | ----------- | ----------- | ----------- | ----------- | ----------- |  ----------- |
 | Slow     | R50   | 8x8                        | 74.58 | 91.63 | 54.52     | 32.45     |

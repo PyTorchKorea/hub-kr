@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: Semi-supervised and semi-weakly supervised ImageNet Models
-summary: Billion scale semi-supervised learning for image classification 에서 제안된 ResNet, ResNext 모델
+summary: Billion scale semi-supervised learning for image classification 논문에서 제안된 ResNet, ResNext 모델
 category: researchers
 image: ssl-image.png
 author: Facebook AI

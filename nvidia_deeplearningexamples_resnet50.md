@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: ResNet50
-summary: ResNet50 model trained with mixed precision using Tensor Cores.
+summary: 텐서 코어를 사용하여 혼합 정밀도로 훈련된 ResNet50 모델.
 category: researchers
 image: nvidia_logo.png
 author: NVIDIA
@@ -57,7 +57,7 @@ device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cp
 print(f'Using {device} for inference')
 ```
 
-IMAGENET 데이터셋에서 사전 훈련된 모델을 로드합니다.
+ImageNet 데이터셋에서 사전 훈련된 모델을 로드합니다.
 ```python
 resnet50 = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_resnet50', pretrained=True)
 utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_convnets_processing_utils')

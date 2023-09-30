@@ -4,7 +4,7 @@ background-class: hub-background
 body-class: hub
 category: researchers
 title: SlowFast
-summary: SlowFast networks pretrained on the Kinetics 400 dataset  
+summary: Kinetics 400 데이터섯에서 사전 학습된 SlowFast 네트워크
 image: slowfast.png 
 author: FAIR PyTorchVideo
 tags: [vision]
@@ -78,7 +78,7 @@ for k, v in kinetics_classnames.items():
     kinetics_id_to_classname[v] = str(k).replace('"', "")
 ```
 
-#### 입력 변환에 대한 정의
+#### 입력 형태에 대한 정의
 
 ```python
 side_size = 256
