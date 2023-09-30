@@ -64,7 +64,7 @@ device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cp
 print(f'Using {device} for inference')
 ```
 
-IMAGENET 데이터셋으로 사전 학습된 모델을 불러옵니다.
+ImageNet 데이터셋으로 사전 학습된 모델을 불러옵니다.
 ```python
 resneXt = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_resneXt')
 utils = torch.hub.load('NVIDIA/DeepLearningExamples:torchhub', 'nvidia_convnets_processing_utils')

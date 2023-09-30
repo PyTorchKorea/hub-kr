@@ -58,7 +58,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# Imagenet 1000개 클래스의 신뢰 점수를 나타내는 텐서
+# ImageNet 1000개 클래스의 신뢰 점수를 나타내는 텐서
 
 print(output[0])
 
@@ -90,7 +90,7 @@ AlexNet은 2012년도 ImageNet Large Scale Visual Recognition Challenge (ILSVRC)
 
 | 모델 구조 | Top-1 에러 | Top-5 에러 |
 | --------------- | ----------- | ----------- |
-|  alexnet        | 43.45       | 20.91       | -->
+|  AlexNet        | 43.45       | 20.91       | -->
 
 ### 참고문헌
 

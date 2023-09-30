@@ -3,7 +3,7 @@ layout: hub_detail
 background-class: hub-background
 body-class: hub
 title: vgg-nets
-summary: 2014 Imagenet ILSVRC 챌린지에서 ConvNets부분 수상
+summary: 2014 ImageNet ILSVRC 챌린지에서 ConvNets부분 수상
 category: researchers
 image: vgg.png
 author: Pytorch Team
@@ -66,7 +66,7 @@ if torch.cuda.is_available():
 
 with torch.no_grad():
     output = model(input_batch)
-# Imagenet의 1000개 클래스에 대한 신뢰도 점수가 있는 1000개의 Tensor입니다.
+# ImageNet의 1000개 클래스에 대한 신뢰도 점수가 있는 1000개의 Tensor입니다.
 print(output[0])
 # 출력에 정규화되지 않은 점수가 있습니다. 확률을 얻으려면 소프트맥스를 실행할 수 있습니다.
 probabilities = torch.nn.functional.softmax(output[0], dim=0)
