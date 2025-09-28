@@ -1,4 +1,4 @@
-﻿---
+---
 layout: hub_detail
 background-class: hub-background
 body-class: hub
