@@ -18,7 +18,7 @@ demo-model-link: https://huggingface.co/spaces/pytorch/X3D
 
 ### 사용 예시
 
-#### Imports
+#### 불러오기
 
 모델 불러오기:
 

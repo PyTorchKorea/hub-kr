@@ -91,6 +91,7 @@ Wide Residual 네트워크는 ResNet에 비해 단순히 채널 수가 증가했
 
 `wide_resnet50_2` 및 `wide_resnet101_2` 모델은 [Warm Restarts가 있는 SGD(SGDR)](https://arxiv.org/abs/1608.03983)를 사용하여 혼합 정밀도(Mixed Precision) 방식으로 학습되었습니다.
 체크 포인트는 크기가 작은 경우 절반 정밀도(batch norm 제외)의 가중치를 가지며 FP32 모델에서도 사용할 수 있습니다.
+
 | Model structure   | Top-1 error | Top-5 error | # parameters |
 | ----------------- | :---------: | :---------: | :----------: |
 |  wide_resnet50_2  | 21.49       | 5.91        | 68.9M        |
